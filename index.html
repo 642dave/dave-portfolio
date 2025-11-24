@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David Rakovský – osobní web</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="page-wrapper">
+
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">DR</div>
+
+            <!-- Hamburger tlačítko -->
+            <button class="nav-toggle" aria-label="Otevřít navigaci" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="navbar">
+                <a href="#about">O mně</a>
+                <a href="#skills">Dovednosti</a>
+                <a href="#projects">Projekty</a>
+                <a href="#contact">Kontakt</a>
+            </nav>
+        </header>
+
+        <!-- Hero sekce -->
+        <section id="about" class="hero">
+
+            <div class="hero-content">
+                <h1 class="hero-title">Ahoj, jsem David Rakovský</h1>
+                <h2 class="hero-subtitle-main">Začínající webový vývojář, který staví jednoduché a funkční weby</h2>
+
+                <p class="hero-text">
+                    Věnuji se tvorbě webových stránek pro jednotlivce a menší firmy. 
+                    Zaměřuji se na čistý a přehledný design, který dává smysl uživatelům a funguje na všech zařízeních. 
+                    K vývoji přistupuji krok za krokem, poctivě a s důrazem na detail. 
+                    Kromě HTML, CSS a JavaScriptu využívám i moderní nástroje a AI, které mi pomáhají pracovat chytře a efektivněji.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn primary-btn">Moje projekty</a>
+                    <a href="#contact" class="btn ghost-btn">Kontaktujte mě</a>
+                </div>
+            </div>
+
+            <div class="hero-photo">
+                <img src="img/avatar-tech.png" 
+                    alt="Abstraktní technický avatar – David Rakovský" 
+                    class="hero-avatar">
+            </div>
+
+        </section>
+
+        <!-- Dovednosti -->
+        <section id="skills" class="skills-section">
+            <h2 class="section-title">Dovednosti</h2>
+
+            <p class="section-text">
+                Učím se moderní webové technologie a soustředím se na to, aby mé projekty byly 
+                rychlé, srozumitelné a dobře zpracované. Každý projekt beru jako příležitost 
+                zlepšit se a posunout o kus dál.
+            </p>
+
+            <div class="skills-grid">
+                <div class="skill-block">
+                    <h3>Webové technologie</h3>
+                    <ul>
+                        <li>HTML5 – čistá a přehledná struktura</li>
+                        <li>CSS3 – moderní layouty, Grid, Flexbox</li>
+                        <li>Responzivní design</li>
+                    </ul>
+                </div>
+
+                <div class="skill-block">
+                    <h3>JavaScript (základy)</h3>
+                    <ul>
+                        <li>Práce s DOM</li>
+                        <li>Interakce a skripty</li>
+                        <li>Další rozvoj v praxi</li>
+                    </ul>
+                </div>
+
+                <div class="skill-block">
+                    <h3>Vývojové nástroje</h3>
+                    <ul>
+                        <li>Git & GitHub</li>
+                        <li>VS Code</li>
+                        <li>AI nástroje při návrhu a ladění</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projekty -->
+        <section id="projects" class="projects-section">
+            <h2 class="section-title">Projekty</h2>
+
+            <p class="section-text">
+                Zde najdete ukázky projektů, na kterých pracuji. 
+                Každý z nich pro mě představuje nový krok ve vývoji a možnost vyzkoušet si něco nového. 
+                Na portfolio postupně přidávám další ukázky své práce.
+            </p>
+
+            <div class="projects-grid">
+
+                <!-- SMARTFIT -->
+                <div class="project-card">
+                    <h3>SmartFit</h3>
+                    <p>
+                        Prezentační web moderních fitness hodinek. Cílem projektu bylo 
+                        vytvořit čistý a jednoduchý jednostránkový web se zaměřením na responsivitu 
+                        a vizuální prezentaci produktu.
+                    </p>
+                    <a href="https://642dave.github.io/smartfit-website/index.html"
+                        class="btn ghost-btn"
+                        style="margin-top: 1rem;"
+                        target="_blank" 
+                        rel="noopener noreferrer">
+                        Zobrazit projekt
+                    </a>
+                </div>
+
+                <!-- ASKLEPIOS -->
+                <div class="project-card">
+                    <h3>Asklepios <span class="badge">WIP</span></h3>
+
+                    <p>
+                        Můj showcase projekt: prezentační lékařský systém vytvořený v Django & PostgreSQL. 
+                        Obsahuje pacienty, diagnózy, lékaře, medikace a další prvky – zaměřený na backend logiku 
+                        a práci s databází.
+                    </p>
+                    <a href="https://github.com/642dave/Asklepios-project-personal-presentation"
+                        class="btn ghost-btn"
+                        style="margin-top: 1rem;"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        Zobrazit na GitHubu
+                    </a>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Kontakt -->
+        <section id="contact" class="contact-section">
+            <h2 class="section-title">Kontakt</h2>
+
+            <p class="section-text">
+                Pokud máte zájem o vytvoření jednoduchého a funkčního webu, nebo se jen chcete na něco zeptat,
+                klidně mi napište. Reaguji co nejdříve a rád vše vysvětlím.
+            </p>
+
+            <div class="contact-box">
+
+                <p><strong>Email:</strong> <a href="mailto:rd9371202gmail.com">rd937120@gmail.com</a></p>
+                <!--<p><strong>LinkedIn:</strong> <a href="#">Doplním později</a></p>-->
+
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© 2025 David Rakovský – osobní prezentace</p>
+        </footer>
+
+    </div>
+    
+    <script src="js/main.js"></script>
+
+
+</body>
+</html>
