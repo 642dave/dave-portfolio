@@ -21,7 +21,7 @@ body {
     line-height: 1.6;
 }
 
-/* Nadpisy – patkové display písmo */
+/* Headings – serif display font */
 h1,
 h2,
 h3,
@@ -55,19 +55,17 @@ h3 {
    ========================================= */
 
 .header {
-    position: sticky;           /* drží se nahoře při scrollu */
-    top: 0;                     /* pozice od horní hrany */
-    z-index: 100;               /* aby byla nad obsahem */
-    
+    position: sticky;
+    top: 0;
+    z-index: 100;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1.2rem 2rem;
     background: #ffffff;
     border-bottom: 1px solid #e0e0e0;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04); /* jemný stín při scrollu */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
 }
-
 
 .logo {
     font-size: 1rem;
@@ -75,13 +73,12 @@ h3 {
     letter-spacing: 0.08em;
 }
 
-/* Navigační menu */
+/* Desktop navigation */
 .navbar {
     display: flex;
     gap: 2rem;
 }
 
-/* Jednotlivé odkazy */
 .navbar a {
     position: relative;
     text-decoration: none;
@@ -92,7 +89,7 @@ h3 {
     transition: color 0.2s ease;
 }
 
-/* Animované podtržení */
+/* Animated underline on nav links */
 .navbar a::after {
     content: "";
     position: absolute;
@@ -112,7 +109,7 @@ h3 {
     width: 100%;
 }
 
-/* Hamburger tlačítko – defaultně skryté (jen desktop) */
+/* Mobile navigation toggle button (hidden on desktop) */
 .nav-toggle {
     display: none;
     border: none;
@@ -121,7 +118,6 @@ h3 {
     padding: 0.3rem;
 }
 
-/* Tři čárky hamburgeru */
 .nav-toggle span {
     display: block;
     width: 22px;
@@ -168,7 +164,7 @@ h3 {
     margin-bottom: 2rem;
 }
 
-/* Tlačítka */
+/* Hero buttons */
 .hero-buttons {
     display: flex;
     gap: 1rem;
@@ -184,7 +180,7 @@ h3 {
     transition: all 0.25s ease;
 }
 
-/* Modré primární */
+/* Primary (filled) button */
 .primary-btn {
     background: #6b5bff;
     color: white;
@@ -196,7 +192,7 @@ h3 {
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
-/* Průhledné tlačítko */
+/* Secondary (outline) button */
 .ghost-btn {
     background: transparent;
     color: #6b5bff;
@@ -208,7 +204,7 @@ h3 {
     color: white;
 }
 
-/* Fotka / avatar */
+/* Photo / avatar */
 .hero-photo {
     display: flex;
     justify-content: center;
@@ -219,13 +215,13 @@ h3 {
     width: 230px;
     height: 230px;
     border-radius: 50%;
-    object-fit: cover;              /* jistota, že to hezky sedne do kruhu */
+    object-fit: cover;              /* ensure image fills the circle nicely */
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
 }
 
-/* ===============================
-   SEKCE – OBECNÉ
-================================= */
+/* =========================================
+   5) SECTIONS – GENERIC
+   ========================================= */
 
 .section-title {
     font-size: 2rem;
@@ -245,9 +241,9 @@ h3 {
     margin: 2rem auto 4rem auto;
 }
 
-/* ===============================
-   DOVEDNOSTI
-================================= */
+/* =========================================
+   6) SKILLS SECTION
+   ========================================= */
 
 .skills-grid {
     display: grid;
@@ -277,9 +273,9 @@ h3 {
     margin-bottom: 0.4rem;
 }
 
-/* ===============================
-   PROJEKTY
-================================= */
+/* =========================================
+   7) PROJECTS SECTION
+   ========================================= */
 
 .projects-grid {
     display: grid;
@@ -312,9 +308,9 @@ h3 {
     border: 1px solid #e9c46a;
 }
 
-/* ===============================
-   KONTAKT
-================================= */
+/* =========================================
+   8) CONTACT SECTION
+   ========================================= */
 
 .contact-section p {
     margin-bottom: 0.8rem;
@@ -328,17 +324,19 @@ h3 {
     box-shadow: 0 2px 4px rgba(0,0,0,0.04);
     max-width: 500px;
 }
+
 .contact-box a {
     color: #6b5bff;
     text-decoration: none;
 }
+
 .contact-box a:hover {
     text-decoration: underline;
 }
 
-/* ===============================
-   FOOTER
-================================= */
+/* =========================================
+   9) FOOTER
+   ========================================= */
 
 .footer {
     margin-top: auto;
@@ -350,9 +348,9 @@ h3 {
     color: #444;
 }
 
-/* ===============================
-   RESPONSIVITA
-================================= */
+/* =========================================
+   10) RESPONSIVENESS
+   ========================================= */
 
 @media (max-width: 900px) {
     .hero {
@@ -390,14 +388,14 @@ h3 {
         text-align: center;
     }
 
-     .section-title {
+    .section-title {
         font-size: 1.7rem;
     }
 }
 
 @media (max-width: 768px) {
 
-    /* --- gridy (dovednosti + projekty) --- */
+    /* Skills & projects grid */
     .skills-grid,
     .projects-grid {
         grid-template-columns: 1fr;
@@ -415,8 +413,7 @@ h3 {
         margin: 0 auto;
     }
 
-    /* --- header + hamburger menu --- */
-
+    /* Header & mobile navigation */
     .header {
         padding: 0.8rem 1rem;
         position: sticky;
@@ -436,8 +433,8 @@ h3 {
         background: #ffffff;
 
         display: flex;
-        flex-direction: column;      /* odkazy pod sebe */
-        align-items: center;     /* zarovnání vlevo */
+        flex-direction: column;      /* stack links vertically */
+        align-items: center;         /* center links horizontally */
         justify-content: flex-start;
         flex-wrap: nowrap;
 
@@ -451,7 +448,7 @@ h3 {
     }
 
     .navbar a {
-        width: 100%;                 /* každý odkaz přes celou šířku */
+        width: 100%;                 /* full-width clickable area */
         padding: 0.75rem 1.2rem;
         text-align: center;
         font-size: 0.95rem;
@@ -473,6 +470,3 @@ h3 {
         transform: translateY(-7px) rotate(-45deg);
     }
 }
-
-
-
