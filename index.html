@@ -99,8 +99,8 @@
                     </ul>
 
                     <div class="hero-actions">
-                    <a class="cta-button" href="mailto:info@davidrakovsky.cz">Napsat e-mail (nezávazně)</a>
-                    <a href="#projects" class="secondary-button">Moje projekty</a>
+                        <a class="cta-button" href="mailto:info@davidrakovsky.cz">Napsat e-mail (nezávazně)</a>
+                        <a href="#contact" class="secondary-button">Rychlá poptávka (1 minuta)</a>
                     </div>
 
                     <p class="cta-note">Odpovím do 24 hodin · Brno a okolí</p>
@@ -165,7 +165,7 @@
                 </p>
 
                 <div class="pricing-grid">
-                    <div class="pricing-card">
+                    <div class="pricing-card" data-package-card="mini">
                         <h3>Mini web</h3>
                         <ul>
                             <li>Jednostránkový přehledný web (tzv. landing page)</li>
@@ -174,9 +174,18 @@
                             <li>Vhodné pro živnostníky a malé firmy</li>
                             <li><strong>od 3 000 Kč</strong></li>
                         </ul>
+
+                        <div class="pricing-card-actions">
+                            <a class="btn" href="https://642dave.github.io/demo-miniweb-hodinovy-manzel/" target="_blank" rel="noopener">
+                                Zobrazit ukázku
+                            </a>
+                            <a class="btn ghost-btn" href="#contact">
+                                Nezávazně poptat
+                            </a>
+                        </div>
                     </div>
 
-                    <div class="pricing-card">
+                    <div class="pricing-card" data-package-card="standard">
                         <h3>Standard web</h3>
                         <p class="plan-note">Nejčastější volba pro malé firmy</p>
                         <ul>
@@ -184,15 +193,33 @@
                             <li>Responzivní design a základní optimalizace</li>
                             <li><strong>cca 8 000 – 12 000 Kč</strong></li>
                         </ul>
+
+                        <div class="pricing-card-actions">
+                            <a class="btn" href="https://642dave.github.io/smartfit-website/" target="_blank" rel="noopener">
+                                Zobrazit ukázku
+                            </a>
+                            <a class="btn ghost-btn" href="#contact">
+                                Nezávazně poptat
+                            </a>
+                        </div>
                     </div>
 
-                    <div class="pricing-card">
+                    <div class="pricing-card" data-package-card="rozsirene-reseni">
                         <h3>Rozšířené řešení</h3>
                         <ul>
                             <li>Více obsahu, specifické požadavky nebo zvláštní funkce</li>
                             <li>Možnost dlouhodobější spolupráce a rozvoje</li>
                             <li><strong>od 15 000 Kč</strong></li>
                         </ul>
+
+                         <div class="pricing-card-actions">
+                            <a class="btn" href="#contact">
+                                Domluvit konzultaci
+                            </a>
+                            <a class="btn ghost-btn" href="#process">
+                                Jak probíhá spolupráce
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -222,7 +249,7 @@
                 </div>
 
             </section>
-
+            
             <!-- Skills section -->
             <section id="skills" class="skills-section">
                 <h2 class="section-title">Dovednosti</h2>
@@ -289,52 +316,130 @@
             <section id="projects" class="projects-section">
                 <h2 class="section-title">Projekty</h2>
 
+                <h3 class="section-subtitle">Ukázky pro klienty (typický výstup balíčků)</h3>
+
                 <p class="section-text">
-                    Zde najdete ukázky projektů, na kterých pracuji. 
-                    Každý z nich pro mě představuje nový krok ve vývoji a možnost vyzkoušet si něco nového. 
-                    Na portfolio postupně přidávám další ukázky své práce.
+                    Níže jsou ukázky typického výsledku pro jednotlivé balíčky. Kliknutím na „Zobrazit balíček“
+                    se vrátíte do ceníku a snadno uvidíte, jaký balíček daný projekt reprezentuje.
                 </p>
 
                 <div class="projects-grid">
 
-                    <!-- Project: SMARTFIT landing page -->
-                    <div class="project-card">
-                        <h3>SmartFit</h3>
-                        <p>
-                            Prezentační web moderních fitness hodinek. Cílem projektu bylo vytvořit čistý a jednoduchý
-                            vícestránkový web se zaměřením na responzivitu a vizuální prezentaci produktu.
-                        </p>
-                        <a href="https://642dave.github.io/smartfit-website/index.html"
-                            class="btn ghost-btn"
-                            style="margin-top: 1rem;"
-                            target="_blank" 
-                            rel="noopener noreferrer">
-                            Zobrazit projekt
-                        </a>
+                    <!-- Project: Hodinový manžel (Mini web) -->
+                    <div class="project-card" data-package="mini">
+                    <div class="project-meta">
+                        <span class="badge">Mini web</span>
                     </div>
 
-                    <!-- Project: ASKLEPIOS medical system (Django) -->
-                    <div class="project-card">
-                        <h3>Asklepios <span class="badge">WIP</span></h3>
+                    <h3>Hodinový manžel</h3>
+                    <p>
+                        Jednostránkový miniweb pro živnostníka: nabídka služeb, důvěryhodná prezentace, rychlý kontakt a CTA.
+                    </p>
 
-                        <p>
-                            Můj učební projekt – prezentační lékařský systém vytvořený v Django &amp; PostgreSQL.
-                            Obsahuje základní práci s databází, pacienty, diagnózami a dalšími prvky backendu.
-                            Projekt postupně rozvíjím a slouží mi hlavně jako ukázka růstu a práce s backend logikou.
-                        </p>
-                        <a href="https://github.com/642dave/Asklepios-project-personal-presentation"
-                            class="btn ghost-btn"
-                            style="margin-top: 1rem;"
-                            target="_blank"
-                            rel="noopener noreferrer">
-                            Zobrazit na GitHubu
+                    <div class="project-actions">
+                        <a href="https://642dave.github.io/demo-miniweb-hodinovy-manzel/"
+                        class="btn"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        Zobrazit demo
                         </a>
 
+                        <a href="#pricing"
+                        class="btn ghost-btn"
+                        data-scroll-highlight="mini">
+                        Zobrazit balíček
+                        </a>
+                    </div>
+                    </div>
+
+                    <!-- Project: SmartFit (Standard web) -->
+                    <div class="project-card" data-package="standard">
+                    <div class="project-meta">
+                        <span class="badge">Standard web</span>
+                    </div>
+
+                    <h3>SmartFit</h3>
+                    <p>
+                        Prezentační web moderních fitness hodinek. Vícestránkový web se zaměřením na responzivitu a vizuální prezentaci produktu.
+                    </p>
+
+                    <div class="project-actions">
+                        <a href="https://642dave.github.io/smartfit-website/"
+                        class="btn"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        Zobrazit demo
+                        </a>
+
+                        <a href="#pricing"
+                        class="btn ghost-btn"
+                        data-scroll-highlight="standard">
+                        Zobrazit balíček
+                        </a>
+                    </div>
+                    </div>
+
+                </div>
+
+                <h3 class="section-subtitle">Výukové projekty (ukázka vývoje a práce s kódem)</h3>
+
+                <p class="section-text">
+                    Tyto projekty slouží primárně jako demonstrace vývoje, práce s technologiemi a kódem. Nejde o typické firemní weby.
+                </p>
+
+                <div class="projects-grid">
+
+                    <div class="project-card">
+                    <div class="project-meta">
+                        <span class="badge">Výukový projekt</span>
+                    </div>
+
+                    <h3>Asklepios</h3>
+                    <p>
+                        Učební projekt – prezentační lékařský systém v Django &amp; PostgreSQL. Ukázka práce s databází, strukturou aplikace
+                        a backend logikou.
+                    </p>
+
+                    <div class="project-actions">
+                        <a href="https://github.com/642dave/Asklepios-project-personal-presentation"
+                        class="btn ghost-btn"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        Zobrazit repo
+                        </a>
+                    </div>
+                    </div>
+
+                    <div class="project-card">
+                    <div class="project-meta">
+                        <span class="badge">Výukový projekt</span>
+                    </div>
+
+                    <h3>SmartFit – kód projektu</h3>
+                    <p>
+                        Frontend ukázka: struktura vícestránkového webu, responzivita a práce s UI. Současně slouží jako demo standardního balíčku.
+                    </p>
+
+                    <div class="project-actions">
+                        <a href="https://github.com/642dave/smartfit-website"
+                        class="btn ghost-btn"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        Zobrazit repo
+                        </a>
+
+                        <a href="https://642dave.github.io/smartfit-website/"
+                        class="btn"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        Zobrazit demo
+                        </a>
+                    </div>
                     </div>
 
                 </div>
             </section>
-
+           
             <!-- Contact section -->
             <section id="contact" class="contact-section">
                 <h2 class="section-title">Kontakt</h2>
@@ -353,6 +458,21 @@
                 <p class="section-text">
                     Do předmětu e-mailu stačí napsat <strong>„WEB – poptávka“</strong>.
                 </p>
+
+                <div class="contact-actions">
+                    <a class="cta-button"
+                        href="mailto:info@davidrakovsky.cz?subject=WEB%20%E2%80%93%20rychl%C3%A1%20popt%C3%A1vka&body=Dobr%C3%BD%20den,%0A%0Am%C3%A1m%20z%C3%A1jem%20o%20web.%0A%0AObor:%20%0AM%C4%9Bsto:%20%0ACo%20by%20m%C4%9Bl%20web%20obsahovat:%20%0A%0AD%C4%9Bkuji%20a%20p%C5%99eji%20hezk%C3%BD%20den,%0A">
+                        Odeslat rychlou poptávku
+                    </a>
+
+                    <a class="secondary-button" href="mailto:info@davidrakovsky.cz">
+                        Napsat vlastní e-mail
+                    </a>
+                </div>
+
+                    <p class="cta-note">
+                    Preferuji psanou komunikaci. Odpovím do 24 hodin.
+                    </p>
 
                 <div class="contact-box">
 

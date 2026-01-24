@@ -210,6 +210,36 @@ h3 {
   background: rgba(30, 144, 255, 0.08);
 }
 
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid transparent;
+  background: #1e90ff;
+  color: #fff;
+  transition: background-color 0.2s ease, transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.btn:hover {
+  background: #1876d1;
+  transform: translateY(-1px);
+}
+
+.ghost-btn {
+  background: transparent;
+  color: #1e90ff;
+  border-color: #1e90ff;
+}
+
+.ghost-btn:hover {
+  background: rgba(30, 144, 255, 0.08);
+}
+
 .cta-note {
     margin-top: 10px;
     font-size: 0.9rem;
@@ -317,6 +347,13 @@ h3 {
     margin-top: 0.9rem;
     font-size: 0.95rem;
     color: #666;
+}
+
+.pricing-card-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 1rem;
 }
 
 .pricing-card ul {
@@ -431,6 +468,15 @@ h3 {
     text-decoration: underline;
 }
 
+/* Contact actions (quick inquiry buttons) */
+.contact-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 1rem 0;
+}
+
 .social-link {
     color: #6b5bff; /* příklad pěkné modré */
 }
@@ -449,46 +495,48 @@ h3 {
     color: #444;
 }
 
+.project-meta {
+  margin-bottom: .5rem;
+}
+
+.project-actions {
+  display: flex;
+  gap: .75rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
 /* =========================================
    10) RESPONSIVENESS
    ========================================= */
 
 @media (max-width: 900px) {
-    .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-        padding: 2.5rem 1rem;
-    }
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 2.5rem 1rem;
+  }
 
-    @media (max-width: 900px) {
-        .hero-actions {
-            justify-content: center;
-    }
+  .hero-actions {
+    justify-content: center;
+  }
 
-    .hero-title {
-        font-size: 2.2rem;
-    }
+  .hero-photo {
+    margin-top: 1.5rem;
+  }
 
-    .hero-subtitle-main {
-        font-size: 1.1rem;
-    }
+  .hero-avatar {
+    width: 180px;
+    height: 180px;
+  }
 
-    .hero-photo {
-        margin-top: 1.5rem;
-    }
+  .section-title {
+    font-size: 1.7rem;
+  }
 
-    .hero-avatar {
-        width: 180px;
-        height: 180px;
-    }
-
-    .section-title {
-        font-size: 1.7rem;
-    }
-
-    .pricing-section ol {
-        margin-left: 10px;
-    }
+  .pricing-section ol {
+    margin-left: 10px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -547,16 +595,10 @@ h3 {
     }
 
     .navbar a {
-        width: 100%;                 /* full-width clickable area */
+        width: 100%;
         padding: 0.75rem 1.2rem;
         text-align: center;
         font-size: 0.95rem;
-    }
-
-    @media (max-width: 400px) {
-        .section-text li {
-            margin-left: 20px;
-        }
     }
 
     body.nav-open .navbar {
@@ -575,3 +617,17 @@ h3 {
         transform: translateY(-7px) rotate(-45deg);
     }
 }
+
+@media (max-width: 400px) {
+    .section-text li {
+        margin-left: 20px;
+    }
+}
+
+.is-highlighted {
+  outline: 2px solid rgba(30, 144, 255, 0.45);
+  box-shadow: 0 0 0 6px rgba(30, 144, 255, 0.10);
+  border-radius: 12px;
+}
+
+
