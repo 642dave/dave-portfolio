@@ -1,4 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+  // =========================
+  // Mobile navigation toggle
+  // =========================
   const navToggle = document.querySelector(".nav-toggle");
   const nav = document.querySelector(".navbar");
 
@@ -10,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
       navToggle.setAttribute("aria-expanded", String(!expanded));
     });
 
-    nav.querySelectorAll("a").forEach((link) => {
+    nav.querySelectorAll("a").forEach(link => {
       link.addEventListener("click", () => {
         document.body.classList.remove("nav-open");
         navToggle.setAttribute("aria-expanded", "false");
@@ -18,6 +22,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // =========================
+  // Footer year (TADY 👇)
+  // =========================
+  const yearEl = document.getElementById("year");
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
+
+  // =========================
+  // Pricing highlight scroll
+  // =========================
   document.addEventListener("click", (e) => {
     const link = e.target.closest("[data-scroll-highlight]");
     if (!link) return;
@@ -31,5 +46,5 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => card.classList.remove("is-highlighted"), 2200);
     }, 200);
   });
-});
 
+});
