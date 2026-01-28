@@ -1,506 +1,443 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Webový vývojář David Rakovský – tvorba moderních webových stránek</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <title>Jednoduché weby pro malé firmy a živnostníky | David Rakovský</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
-    <!-- Basic SEO -->
-    <meta name="description" content="David Rakovský – začínající webový vývojář. Tvořím moderní, rychlé a přehledné webové stránky pro jednotlivce a menší firmy. 
-                                    Zaměřuji se na čistý design, responzivitu a postupný, poctivý vývoj.">
-    <meta name="author" content="David Rakovský">
-    <link rel="canonical" href="https://davidrakovsky.cz/">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Basic SEO -->
+  <meta name="description" content="Tvořím jednoduché, přehledné weby pro malé firmy a živnostníky. Mini web už od 3 000 Kč. Rychlá domluva, responzivní design, jasné ceny.">
+  <meta name="author" content="David Rakovský">
+  <link rel="canonical" href="https://davidrakovsky.cz/">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <!-- Open Graph (social sharing) -->
-    <meta property="og:locale" content="cs_CZ">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Webový vývojář David Rakovský – tvorba moderních webů">
-    <meta property="og:description" content="Tvorba moderních, responzivních webových stránek pro jednotlivce a menší firmy. Důraz na čistý design, rychlost a použitelnost.">
-    <meta property="og:url" content="https://davidrakovsky.cz/">
-    <meta property="og:image" content="https://davidrakovsky.cz/img/avatar-tech.png">
+  <!-- Open Graph (social sharing) -->
+  <meta property="og:locale" content="cs_CZ">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Jednoduché weby pro malé firmy a živnostníky | David Rakovský">
+  <meta property="og:description" content="Mini web už od 3 000 Kč. Přehledný web, kterému lidé rozumí a snadno vás kontaktují.">
+  <meta property="og:url" content="https://davidrakovsky.cz/">
+  <meta property="og:image" content="https://davidrakovsky.cz/img/avatar-tech.png">
 
-    <!-- Twitter Cards (X) -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Webový vývojář David Rakovský – tvorba moderních webů">
-    <meta name="twitter:description" content="Tvořím jednoduché a funkční webové stránky na míru.">
-    <meta name="twitter:image" content="https://davidrakovsky.cz/img/avatar-tech.png">
+  <!-- Twitter Cards (X) -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Jednoduché weby pro malé firmy a živnostníky | David Rakovský">
+  <meta name="twitter:description" content="Mini web už od 3 000 Kč. Přehledný web, který funguje na mobilu.">
+  <meta name="twitter:image" content="https://davidrakovsky.cz/img/avatar-tech.png">
 
-    <!-- Structured data – Person schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "David Rakovský",
-      "url": "https://davidrakovsky.cz/",
-      "jobTitle": "Webový vývojář",
-      "description": "Začínající webový vývojář, který staví jednoduché a funkční weby pro jednotlivce a menší firmy.",
-      "image": "https://davidrakovsky.cz/img/avatar-tech.png",
-      "knowsAbout": ["HTML", "CSS", "JavaScript", "Python", "Django"],
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "CZ"
-      }
+  <!-- Structured data – Person schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "David Rakovský",
+    "url": "https://davidrakovsky.cz/",
+    "jobTitle": "Webdesigner & webový vývojář",
+    "description": "Tvorba jednoduchých, přehledných webů pro malé firmy a živnostníky.",
+    "image": "https://davidrakovsky.cz/img/avatar-tech.png",
+    "knowsAbout": ["HTML", "CSS", "JavaScript", "Python", "Django"],
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "CZ"
     }
-    </script>
-    
-    <!-- Google Fonts: sans-serif + serif for headings -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  }
+  </script>
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="css/style.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-
-    <div class="page-wrapper">
-
-        <!-- Header / Navigation -->
-        <header class="header">
-            <div class="logo">DR</div>
-
-            <!-- Mobile navigation toggle -->
-            <button class="nav-toggle" aria-label="Otevřít navigaci" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
-            <nav class="navbar">
-                <a href="#about">O mně</a>
-                <a href="#services">Co nabízím</a>
-                <a href="#pricing">Ceník</a>
-                <a href="#skills">Dovednosti</a>
-                <a href="#projects">Projekty</a>
-                <a href="#contact">Kontakt</a>
-            </nav>
-        </header>
-        
-        <main>
-            <!-- Hero section -->
-            <section id="about" class="hero">
-                <div class="hero-content">
-                    <h1 class="hero-title-main">Jednoduchý web pro malé firmy a živnostníky</h1>
-
-                    <p class="hero-text">
-                    Nemáte web, nebo vám nepřivádí zákazníky?<br>
-                    Vytvořím přehledný web, kterému lidé rozumí a snadno vás kontaktují.
-                    Samozřejmostí je i optimalizace na mobilu.
-                    </p>
-
-                    <ul class="benefits">
-                    <li>✔ Web, kterému zákazníci rozumí</li>
-                    <li>✔ Přehledný i na mobilu</li>
-                    <li>✔ Jasné ceny bez skrytých poplatků</li>
-                    <li>✔ Vše vysvětlím lidsky</li>
-                    </ul>
-
-                    <div class="hero-actions">
-                        <a class="cta-button" href="mailto:info@davidrakovsky.cz">Napsat e-mail (nezávazně)</a>
-                        <a href="#contact" class="secondary-button">Rychlá poptávka (1 minuta)</a>
-                    </div>
-
-                    <p class="cta-note">Odpovím do 24 hodin · Brno a okolí</p>
-                </div>
-
-                <div class="hero-photo">
-                    <img
-                    src="img/avatar-tech.png"
-                    alt="Abstraktní technický avatar – David Rakovský"
-                    class="hero-avatar"
-                    >
-                </div>
-            </section>
-
-            <!-- Services -->
-            <section id="services" class="services-section">
-                <h2 class="section-title">Co pro vás udělám</h2>
-
-                <p class="section-text">
-                    Pomáhám jednotlivcům a menším firmám získat jednoduchý, přehledný a funkční web. 
-                    Pracuji postupně, vysvětluji každý krok a web přizpůsobuji tomu, co opravdu potřebujete – 
-                    ne tomu, co je jen „hezké na oko“.
-                </p>
-
-                <div class="skills-grid">
-                    <div class="skill-block">
-                        <h3>Nové webové stránky</h3>
-                        <ul>
-                            <li>Jednoduché prezentační weby pro živnostníky a malé firmy</li>
-                            <li>Srozumitelný obsah a přehledná struktura</li>
-                            <li>Moderní vzhled a možnost budoucího rozšíření</li>
-                        </ul>
-                    </div>
-
-                    <div class="skill-block">
-                        <h3>Úpravy stávajícího webu</h3>
-                        <ul>
-                            <li>Vylepšení textů, struktury a vzhledu</li>
-                            <li>Zjednodušení nebo modernizace designu</li>
-                            <li>Menší technické úpravy a opravy</li>
-                        </ul>
-                    </div>
-
-                    <div class="skill-block">
-                        <h3>Průběžná spolupráce</h3>
-                        <ul>
-                            <li>Drobná údržba a aktualizace webu</li>
-                            <li>Doporučení, co má na webu smysl a co už ne</li>
-                            <li>Vysvětlování bez složitého „IT žargonu“</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Pricing -->
-            <section id="pricing" class="pricing-section">
-                <h2 class="section-title">Orientační ceny pro rok 2026 (bez skrytých poplatků)</h2>
-
-                <p class="section-text">
-                    Každý projekt je trochu jiný, proto uvádím orientační ceny platné pro rok 2026.<br>
-                    Konkrétní částku vždy stanovíme dopředu podle rozsahu a náročnosti webu, aby bylo od začátku jasné, za co platíte.
-                </p>
-
-                <div class="pricing-grid">
-                    <div class="pricing-card" data-package-card="mini">
-                        <h3>Mini web</h3>
-                        <ul>
-                            <li>Jednostránkový přehledný web (tzv. landing page)</li>
-                            <li>Jasná struktura: služby, krátké představení, kontakt</li>
-                            <li>Plně responzivní (mobil, tablet, počítač)</li>
-                            <li>Vhodné pro živnostníky a malé firmy</li>
-                            <li><strong>od 3 000 Kč</strong></li>
-                        </ul>
-
-                        <div class="pricing-card-actions">
-                            <a class="btn" href="https://642dave.github.io/demo-miniweb-hodinovy-manzel/" target="_blank" rel="noopener">
-                                Zobrazit ukázku
-                            </a>
-                            <a class="btn ghost-btn" href="#contact">
-                                Nezávazně poptat
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="pricing-card" data-package-card="standard">
-                        <h3>Standard web</h3>
-                        <p class="plan-note">Nejčastější volba pro malé firmy</p>
-                        <ul>
-                            <li>Více sekcí (služby, o mně, kontakt, projekty…)</li>
-                            <li>Responzivní design a základní optimalizace</li>
-                            <li><strong>cca 8 000 – 12 000 Kč</strong></li>
-                        </ul>
-
-                        <div class="pricing-card-actions">
-                            <a class="btn" href="https://642dave.github.io/smartfit-website/" target="_blank" rel="noopener">
-                                Zobrazit ukázku
-                            </a>
-                            <a class="btn ghost-btn" href="#contact">
-                                Nezávazně poptat
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="pricing-card" data-package-card="rozsirene-reseni">
-                        <h3>Rozšířené řešení</h3>
-                        <ul>
-                            <li>Více obsahu, specifické požadavky nebo zvláštní funkce</li>
-                            <li>Možnost dlouhodobější spolupráce a rozvoje</li>
-                            <li><strong>od 15 000 Kč</strong></li>
-                        </ul>
-
-                         <div class="pricing-card-actions">
-                            <a class="btn" href="#contact">
-                                Domluvit konzultaci
-                            </a>
-                            <a class="btn ghost-btn" href="#process">
-                                Jak probíhá spolupráce
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <p class="section-text">
-                    Uvedené ceny jsou orientační.
-                    Po nezávazné poptávce vám pošlu stručný návrh řešení s konkrétní cenovou nabídkou, kterou si společně potvrdíme ještě před zahájením práce.
-                </p>
-
-                <div class="pricing-cta">
-                    <h3 class="pricing-cta-title">Máte zájem o nezávaznou poptávku?</h3>
-                    <p class="pricing-cta-text">
-                        Napište mi pár informací o vašem projektu a do 24 hodin se vám ozvu s návrhem řešení a orientační cenou.
-                    </p>
-
-                    <div class="pricing-cta-actions">
-                        <a class="cta-button" href="mailto:info@davidrakovsky.cz?subject=WEB%20%E2%80%93%20popt%C3%A1vka">
-                            Napsat e-mail (nezávazně)
-                        </a>
-                        <a class="secondary-button" href="#contact">
-                            Přejít na kontakt
-                        </a>
-                    </div>
-
-                    <p class="pricing-cta-note">
-                        Do e-mailu stačí napsat: obor + co má web obsahovat + město.
-                    </p>
-                </div>
-
-            </section>
-            
-            <!-- Skills section -->
-            <section id="skills" class="skills-section">
-                <h2 class="section-title">Dovednosti</h2>
-
-                <p class="section-text">
-                    Učím se moderní webové technologie a soustředím se na to, aby mé projekty byly 
-                    rychlé, srozumitelné a dobře zpracované. Každý projekt beru jako příležitost 
-                    zlepšit se a posunout o kus dál.
-                </p>
-
-                <div class="skills-grid">
-                    <div class="skill-block">
-                        <h3>Webové technologie</h3>
-                        <ul>
-                            <li>HTML5 – čistá a přehledná struktura</li>
-                            <li>CSS3 – moderní layouty, Grid, Flexbox</li>
-                            <li>Responzivní design</li>
-                        </ul>
-                    </div>
-
-                    <div class="skill-block">
-                        <h3>JavaScript (základy)</h3>
-                        <ul>
-                            <li>Práce s DOM</li>
-                            <li>Interaktivní prvky a skripty</li>
-                            <li>Postupné rozšiřování znalostí v praxi</li>
-                        </ul>
-                    </div>
-
-                    <div class="skill-block">
-                        <h3>Vývojové nástroje</h3>
-                        <ul>
-                            <li>Git & GitHub</li>
-                            <li>VS Code</li>
-                            <li>AI nástroje při návrhu a ladění</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Jak spolupráce probíhá -->
-            <section class="pricing-section">
-                <h3 class="section-title">Jak spolupráce probíhá</h3>
-
-                <ol class="section-text">
-                    <li><strong>Nezávazná poptávka</strong> – napíšete mi e-mail, stručně popíšete,
-                        co potřebujete a jaký máte cíl (nový web, úprava stávajícího, doplnění obsahu…).</li>
-                    <li><strong>Krátká konzultace</strong> – upřesníme rozsah, obsah, termín a orientační rozpočet.
-                        Může proběhnout e-mailem nebo online hovorem.</li>
-                    <li><strong>Návrh řešení a cenová nabídka</strong> – po konzultaci ode mě dostanete jednoduchý
-                        návrh struktury webu a konkrétní cenu.</li>
-                    <li><strong>Potvrzení a záloha</strong> – pokud vám nabídka dává smysl, potvrdíme ji
-                        a domluvíme se na záloze a harmonogramu.</li>
-                    <li><strong>Tvorba webu</strong> – připravuji návrh, obsah a kód. Průběžně posílám náhledy,
-                        abyste mohli včas připomínkovat.</li>
-                    <li><strong>Nasazení a předání</strong> – po schválení web nasadím na doménu/hosting a
-                        dostanete stručný návod, jak se o web starat.</li>
-                    <li><strong>Následná péče</strong> – pokud budete chtít, můžeme pokračovat formou
-                        průběžných drobných úprav a aktualizací.</li>
-                </ol>
-            </section>
-
-            <!-- Projects section -->
-            <section id="projects" class="projects-section">
-                <h2 class="section-title">Projekty</h2>
-
-                <h3 class="section-subtitle">Ukázky pro klienty (typický výstup balíčků)</h3>
-
-                <p class="section-text">
-                    Níže jsou ukázky typického výsledku pro jednotlivé balíčky. Kliknutím na „Zobrazit balíček“
-                    se vrátíte do ceníku a snadno uvidíte, jaký balíček daný projekt reprezentuje.
-                </p>
-
-                <div class="projects-grid">
-
-                    <!-- Project: Hodinový manžel (Mini web) -->
-                    <div class="project-card" data-package="mini">
-                    <div class="project-meta">
-                        <span class="badge">Mini web</span>
-                    </div>
-
-                    <h3>Hodinový manžel</h3>
-                    <p>
-                        Jednostránkový miniweb pro živnostníka: nabídka služeb, důvěryhodná prezentace, rychlý kontakt a CTA.
-                    </p>
-
-                    <div class="project-actions">
-                        <a href="https://642dave.github.io/demo-miniweb-hodinovy-manzel/"
-                        class="btn"
-                        target="_blank"
-                        rel="noopener noreferrer">
-                        Zobrazit demo
-                        </a>
-
-                        <a href="#pricing"
-                        class="btn ghost-btn"
-                        data-scroll-highlight="mini">
-                        Zobrazit balíček
-                        </a>
-                    </div>
-                    </div>
-
-                    <!-- Project: SmartFit (Standard web) -->
-                    <div class="project-card" data-package="standard">
-                    <div class="project-meta">
-                        <span class="badge">Standard web</span>
-                    </div>
-
-                    <h3>SmartFit</h3>
-                    <p>
-                        Prezentační web moderních fitness hodinek. Vícestránkový web se zaměřením na responzivitu a vizuální prezentaci produktu.
-                    </p>
-
-                    <div class="project-actions">
-                        <a href="https://642dave.github.io/smartfit-website/"
-                        class="btn"
-                        target="_blank"
-                        rel="noopener noreferrer">
-                        Zobrazit demo
-                        </a>
-
-                        <a href="#pricing"
-                        class="btn ghost-btn"
-                        data-scroll-highlight="standard">
-                        Zobrazit balíček
-                        </a>
-                    </div>
-                    </div>
-
-                </div>
-
-                <h3 class="section-subtitle">Výukové projekty (ukázka vývoje a práce s kódem)</h3>
-
-                <p class="section-text">
-                    Tyto projekty slouží primárně jako demonstrace vývoje, práce s technologiemi a kódem. Nejde o typické firemní weby.
-                </p>
-
-                <div class="projects-grid">
-
-                    <div class="project-card">
-                    <div class="project-meta">
-                        <span class="badge">Výukový projekt</span>
-                    </div>
-
-                    <h3>Asklepios</h3>
-                    <p>
-                        Učební projekt – prezentační lékařský systém v Django &amp; PostgreSQL. Ukázka práce s databází, strukturou aplikace
-                        a backend logikou.
-                    </p>
-
-                    <div class="project-actions">
-                        <a href="https://github.com/642dave/Asklepios-project-personal-presentation"
-                        class="btn ghost-btn"
-                        target="_blank"
-                        rel="noopener noreferrer">
-                        Zobrazit repo
-                        </a>
-                    </div>
-                    </div>
-
-                    <div class="project-card">
-                    <div class="project-meta">
-                        <span class="badge">Výukový projekt</span>
-                    </div>
-
-                    <h3>SmartFit – kód projektu</h3>
-                    <p>
-                        Frontend ukázka: struktura vícestránkového webu, responzivita a práce s UI. Současně slouží jako demo standardního balíčku.
-                    </p>
-
-                    <div class="project-actions">
-                        <a href="https://github.com/642dave/smartfit-website"
-                        class="btn ghost-btn"
-                        target="_blank"
-                        rel="noopener noreferrer">
-                        Zobrazit repo
-                        </a>
-
-                        <a href="https://642dave.github.io/smartfit-website/"
-                        class="btn"
-                        target="_blank"
-                        rel="noopener noreferrer">
-                        Zobrazit demo
-                        </a>
-                    </div>
-                    </div>
-
-                </div>
-            </section>
-           
-            <!-- Contact section -->
-            <section id="contact" class="contact-section">
-                <h2 class="section-title">Kontakt</h2>
-
-                <p class="section-text">
-                    Pokud uvažujete o novém webu, úpravě stávajícího nebo si nejste jistí, co přesně potřebujete,
-                    klidně mi napište. Stručně mi popište svůj projekt a já se vám ozvu zpět – společně vymyslíme
-                    řešení, které bude jednoduché, přehledné a funkční.
-                </p>
-
-                <p>
-                Napište mi, co potřebujete – navrhnu řešení i orientační cenu.<br>
-                Bez závazků.
-                </p>
-
-                <p class="section-text">
-                    Do předmětu e-mailu stačí napsat <strong>„WEB – poptávka“</strong>.
-                </p>
-
-                <div class="contact-actions">
-                    <a class="cta-button"
-                        href="mailto:info@davidrakovsky.cz?subject=WEB%20%E2%80%93%20rychl%C3%A1%20popt%C3%A1vka&body=Dobr%C3%BD%20den,%0A%0Am%C3%A1m%20z%C3%A1jem%20o%20web.%0A%0AObor:%20%0AM%C4%9Bsto:%20%0ACo%20by%20m%C4%9Bl%20web%20obsahovat:%20%0A%0AD%C4%9Bkuji%20a%20p%C5%99eji%20hezk%C3%BD%20den,%0A">
-                        Odeslat rychlou poptávku
-                    </a>
-
-                    <a class="secondary-button" href="mailto:info@davidrakovsky.cz">
-                        Napsat vlastní e-mail
-                    </a>
-                </div>
-
-                    <p class="cta-note">
-                    Preferuji psanou komunikaci. Odpovím do 24 hodin.
-                    </p>
-
-                <div class="contact-box">
-
-                    <p><strong>Email:</strong> 📧 
-                        <a href="mailto:info@davidrakovsky.cz">info@davidrakovsky.cz</a>
-                    </p>
-
-                    <a href="https://www.facebook.com/davidrakovskywebdesign" target="_blank" class="social-link">
-                        <i class="fab fa-facebook"></i> Facebook
-                    </a>
-
-                    <!--<p><strong>LinkedIn:</strong> <a href="#">To be added later</a></p>-->
-
-                </div>
-
-            </section>
-
-        </main>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <p>© <span id="year"></span> David Rakovský · osobní web & ukázka práce</p>
-        </footer>
-
-    </div>
-    
-    <script src="js/main.js" defer></script>
-
+  <div class="page-wrapper">
+
+    <!-- Header / Navigation -->
+    <header class="header">
+      <div class="logo">DR</div>
+
+      <!-- Mobile navigation toggle -->
+      <button class="nav-toggle" aria-label="Otevřít navigaci" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="navbar">
+        <a href="#services">Co nabízím</a>
+        <a href="#pricing">Ceník</a>
+        <a href="#process">Jak probíhá spolupráce</a>
+        <a href="#projects">Ukázky</a>
+        <a href="#contact">Kontakt</a>
+      </nav>
+    </header>
+
+    <main>
+
+      <!-- HERO -->
+      <section id="top" class="hero">
+        <div class="hero-content">
+          <h1 class="hero-title-main">
+            Jednoduchý web pro malé firmy<br>
+            už od 3 000 Kč
+          </h1>
+
+          <p class="hero-text">
+            Potřebujete přehledný web, který lidem jasně řekne, co děláte,
+            a umožní jim vás snadno kontaktovat?<br>
+            Vytvořím pro vás <strong>jednoduchý mini web</strong>, který funguje na mobilu
+            a je připravený přivádět zákazníky.
+          </p>
+
+          <ul class="benefits">
+            <li>✔ Jednostránkový přehledný web (mini web)</li>
+            <li>✔ Optimalizovaný pro mobil a tablet</li>
+            <li>✔ Jasná cena bez skrytých poplatků</li>
+            <li>✔ Vše vysvětlím lidsky, bez technických řečí</li>
+          </ul>
+
+          <div class="hero-actions">
+            <a class="cta-button" href="#contact">Chci jednoduchý web</a>
+          </div>
+
+          <p class="cta-note">Nezávazná poptávka · Odpovím do 24 hodin · Brno a okolí</p>
+        </div>
+
+        <div class="hero-photo">
+          <img src="img/avatar-tech.png" alt="Abstraktní technický avatar – David Rakovský" class="hero-avatar">
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section id="services" class="services-section">
+        <h2 class="section-title">Proč web ode mě</h2>
+
+        <p class="section-text">
+            Nesnažím se prodávat složité řešení.
+            Mým cílem je dodat <strong>jednoduchý, funkční web</strong>,
+            který dává smysl vám i vašim zákazníkům.
+        </p>
+
+        <div class="skills-grid">
+          <div class="skill-block">
+            <h3>Mini web (vlajková loď)</h3>
+             <p>
+                Ideální řešení pro živnostníky a malé firmy, kteří chtějí být rychle vidět.
+                Jednostránkový web s jasnou strukturou, srozumitelným sdělením a
+                tlačítkem, které návštěvníka přivede ke kontaktu.
+            </p>
+            <p>
+                Vše funguje bez problémů na mobilu i počítači a od začátku víte,
+                co dostanete a kolik to bude stát.
+            </p>
+          </div>
+
+          <div class="skill-block">
+            <h3>Úpravy stávajícího webu</h3>
+            <p>
+                Pokud už web máte, ale nefunguje tak, jak by měl, pomohu vám ho
+                zjednodušit, zpřehlednit a dát mu smysl.
+            </p>
+            <p>
+                Často jde o úpravy textů, struktury nebo vzhledu, které výrazně
+                zlepší dojem i použitelnost — bez nutnosti stavět vše od nuly.
+            </p>
+          </div>
+
+          <div class="skill-block">
+            <h3>Rozšíření a dlouhodobější spolupráce</h3>
+            <p>
+                Pokud chcete web postupně rozvíjet, přidávat nové sekce nebo funkce,
+                můžeme spolupracovat dlouhodobě.
+            </p>
+            <p>
+                Vše vysvětluji srozumitelně a doporučuji jen to,
+                co má pro váš byznys skutečný přínos.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRICING -->
+      <section id="pricing" class="pricing-section">
+        <h2 class="section-title">Orientační ceny pro rok 2026 (bez skrytých poplatků)</h2>
+
+        <p class="section-text">
+          Každý projekt je trochu jiný, proto uvádím orientační ceny platné pro rok 2026.<br>
+          Konkrétní částku vždy stanovíme dopředu podle rozsahu webu, aby bylo od začátku jasné, za co platíte.
+        </p>
+
+        <div class="pricing-grid">
+          <!-- MINI (featured) -->
+          <div class="pricing-card is-featured" data-package-card="mini">
+            <p class="plan-badge">Nejčastější volba</p>
+            <h3>Mini web</h3>
+            <p class="plan-note">Jednostránkový web pro živnostníky a malé firmy</p>
+
+            <ul>
+              <li>Jednostránkový přehledný web (landing page)</li>
+              <li>Jasná struktura: služby, krátké představení, kontakt</li>
+              <li>Plně responzivní (mobil, tablet, počítač)</li>
+              <li>Rychlé spuštění a jednoduchá domluva</li>
+              <li><strong>od 3 000 Kč</strong></li>
+            </ul>
+
+            <div class="pricing-card-actions">
+              <a class="btn" href="#contact">Chci jednoduchý web</a>
+              <a class="text-link" href="https://642dave.github.io/demo-miniweb-hodinovy-manzel/" target="_blank" rel="noopener">
+                Ukázka mini webu
+              </a>
+            </div>
+          </div>
+
+          <!-- STANDARD -->
+          <div class="pricing-card" data-package-card="standard">
+            <h3>Standard web</h3>
+            <p class="plan-note">Více obsahu a sekcí (vhodné, když chcete víc informací)</p>
+
+            <ul>
+              <li>Více sekcí (služby, o mně, kontakt, projekty…)</li>
+              <li>Responzivní design a základní optimalizace</li>
+              <li>Vhodné, když chcete web postupně rozšiřovat</li>
+              <li><strong>cca 8 000 – 12 000 Kč</strong></li>
+            </ul>
+
+            <div class="pricing-card-actions">
+              <a class="btn ghost-btn" href="#contact">Chci jednoduchý web</a>
+              <a class="text-link" href="https://642dave.github.io/smartfit-website/" target="_blank" rel="noopener">
+                Ukázka standard webu
+              </a>
+            </div>
+          </div>
+
+          <!-- ROZŠÍŘENÉ -->
+          <div class="pricing-card" data-package-card="rozsirene-reseni">
+            <h3>Rozšířené řešení</h3>
+            <p class="plan-note">Specifické požadavky, funkce nebo dlouhodobější spolupráce</p>
+
+            <ul>
+              <li>Více obsahu, specifické požadavky nebo zvláštní funkce</li>
+              <li>Možnost dlouhodobější spolupráce a rozvoje</li>
+              <li><strong>od 15 000 Kč</strong></li>
+            </ul>
+
+            <div class="pricing-card-actions">
+              <a class="btn ghost-btn" href="#contact">Chci jednoduchý web</a>
+              <a class="text-link" href="#process">Jak probíhá spolupráce</a>
+            </div>
+          </div>
+        </div>
+
+        <p class="section-text">
+          Uvedené ceny jsou orientační.
+          Po nezávazné poptávce vám pošlu stručný návrh řešení s konkrétní cenovou nabídkou, kterou si společně potvrdíme ještě před zahájením práce.
+        </p>
+
+        <div class="pricing-cta">
+          <h3 class="pricing-cta-title">Chcete jednoduchý web?</h3>
+          <p class="pricing-cta-text">
+            Pošlete mi pár informací a do 24 hodin se ozvu s návrhem řešení a orientační cenou.
+          </p>
+
+          <div class="pricing-cta-actions">
+            <a class="cta-button" href="#contact">Chci jednoduchý web</a>
+            <a class="secondary-button" href="#process">Jak probíhá spolupráce</a>
+          </div>
+
+          <p class="pricing-cta-note">
+            Stačí napsat: obor + co má web obsahovat + město.
+          </p>
+        </div>
+      </section>
+
+      <!-- PROCESS -->
+      <section id="process" class="pricing-section">
+        <h2 class="section-title">Jak spolupráce probíhá</h2>
+
+        <ol class="section-text">
+          <li><strong>Nezávazná poptávka</strong> – napíšete mi stručně, co potřebujete a jaký máte cíl.</li>
+          <li><strong>Krátká konzultace</strong> – upřesníme rozsah, obsah, termín a orientační rozpočet (e-mailem nebo online).</li>
+          <li><strong>Návrh řešení a cenová nabídka</strong> – po konzultaci dostanete návrh struktury webu a konkrétní cenu.</li>
+          <li><strong>Potvrzení a záloha</strong> – potvrdíme nabídku a domluvíme harmonogram.</li>
+          <li><strong>Tvorba webu</strong> – připravím obsah a kód, průběžně posílám náhledy ke schválení.</li>
+          <li><strong>Nasazení a předání</strong> – web nasadím na doménu/hosting a dostanete stručný návod.</li>
+          <li><strong>Následná péče</strong> – pokud budete chtít, můžeme pokračovat průběžnými úpravami.</li>
+        </ol>
+
+        <div class="pricing-cta" style="margin-top: 24px;">
+          <h3 class="pricing-cta-title">Chcete jednoduchý web?</h3>
+          <p class="pricing-cta-text">Napište mi pár informací a do 24 hodin se ozvu.</p>
+          <div class="pricing-cta-actions">
+            <a class="cta-button" href="#contact">Chci jednoduchý web</a>
+            <a class="secondary-button" href="#projects">Ukázky webů</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects" class="projects-section">
+        <h2 class="section-title">Ukázky webů</h2>
+
+        <p class="section-text">
+          Níže jsou ukázky typického výsledku pro jednotlivé balíčky. Kliknutím na „Zobrazit balíček“
+          se vrátíte do ceníku a uvidíte, jaký balíček daný projekt reprezentuje.
+        </p>
+
+        <div class="projects-grid">
+          <!-- Project: Hodinový manžel (Mini web) -->
+          <div class="project-card" data-package="mini">
+            <div class="project-meta"><span class="badge">Mini web</span></div>
+            <h3>Hodinový manžel</h3>
+            <p>Jednostránkový miniweb pro živnostníka: nabídka služeb, důvěryhodná prezentace, rychlý kontakt a CTA.</p>
+
+            <div class="project-actions">
+              <a href="https://642dave.github.io/demo-miniweb-hodinovy-manzel/" class="btn" target="_blank" rel="noopener noreferrer">
+                Zobrazit demo
+              </a>
+              <a href="#pricing" class="btn ghost-btn" data-scroll-highlight="mini">
+                Zobrazit balíček
+              </a>
+            </div>
+          </div>
+
+          <!-- Project: SmartFit (Standard web) -->
+          <div class="project-card" data-package="standard">
+            <div class="project-meta"><span class="badge">Standard web</span></div>
+            <h3>SmartFit</h3>
+            <p>Prezentační web moderních fitness hodinek. Vícestránkový web se zaměřením na responzivitu a vizuální prezentaci produktu.</p>
+
+            <div class="project-actions">
+              <a href="https://642dave.github.io/smartfit-website/" class="btn" target="_blank" rel="noopener noreferrer">
+                Zobrazit demo
+              </a>
+              <a href="#pricing" class="btn ghost-btn" data-scroll-highlight="standard">
+                Zobrazit balíček
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Secondary: dev portfolio -->
+        <h3 class="section-subtitle" style="margin-top: 48px;">Výukové projekty (volitelné)</h3>
+        <p class="section-text">
+          Tyto projekty jsou ukázka vývoje a práce s kódem. Nejde o typické firemní weby.
+        </p>
+
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-meta"><span class="badge">Výukový projekt</span></div>
+            <h3>Asklepios</h3>
+            <p>Učební projekt – prezentační lékařský systém v Django &amp; PostgreSQL. Ukázka práce s databází a backend logikou.</p>
+            <div class="project-actions">
+              <a href="https://github.com/642dave/Asklepios-project-personal-presentation" class="btn ghost-btn" target="_blank" rel="noopener noreferrer">
+                Zobrazit repo
+              </a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-meta"><span class="badge">Výukový projekt</span></div>
+            <h3>SmartFit – kód projektu</h3>
+            <p>Frontend ukázka: struktura vícestránkového webu, responzivita a práce s UI. Současně slouží jako demo standardního balíčku.</p>
+            <div class="project-actions">
+              <a href="https://github.com/642dave/smartfit-website" class="btn ghost-btn" target="_blank" rel="noopener noreferrer">
+                Zobrazit repo
+              </a>
+              <a href="https://642dave.github.io/smartfit-website/" class="btn" target="_blank" rel="noopener noreferrer">
+                Zobrazit demo
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS (secondary) -->
+      <section id="skills" class="skills-section">
+        <h2 class="section-title">Dovednosti (doplňkově)</h2>
+
+        <p class="section-text">
+          Tato část je doplňková – pokud vás zajímá technická stránka, najdete zde stručný přehled.
+        </p>
+
+        <div class="skills-grid">
+          <div class="skill-block">
+            <h3>Webové technologie</h3>
+            <ul>
+              <li>HTML5 – čistá a přehledná struktura</li>
+              <li>CSS3 – moderní layouty, Grid, Flexbox</li>
+              <li>Responzivní design</li>
+            </ul>
+          </div>
+
+          <div class="skill-block">
+            <h3>JavaScript (základy)</h3>
+            <ul>
+              <li>Práce s DOM</li>
+              <li>Interaktivní prvky a skripty</li>
+              <li>Postupné rozšiřování znalostí v praxi</li>
+            </ul>
+          </div>
+
+          <div class="skill-block">
+            <h3>Vývojové nástroje</h3>
+            <ul>
+              <li>Git & GitHub</li>
+              <li>VS Code</li>
+              <li>AI nástroje při návrhu a ladění</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="contact-section">
+        <h2 class="section-title">Kontakt</h2>
+
+        <p class="section-text">
+          Napište mi pár informací o vašem projektu a já se vám do 24 hodin ozvu s návrhem řešení a orientační cenou.
+          Bez závazků.
+        </p>
+
+        <p class="section-text">
+          Stačí napsat: <strong>obor</strong> + <strong>město</strong> + <strong>co má web obsahovat</strong>.
+        </p>
+
+        <div class="contact-actions">
+          <a class="cta-button"
+             href="mailto:info@davidrakovsky.cz?subject=WEB%20%E2%80%93%20popt%C3%A1vka&body=Dobr%C3%BD%20den,%0A%0Am%C3%A1m%20z%C3%A1jem%20o%20jednoduch%C3%BD%20web.%0A%0AObor:%20%0AM%C4%9Bsto:%20%0ACo%20by%20m%C4%9Bl%20web%20obsahovat:%20%0A%0AD%C4%9Bkuji%20a%20p%C5%99eji%20hezk%C3%BD%20den,%0A">
+            Chci jednoduchý web (poptávka)
+          </a>
+
+          <a class="secondary-button" href="mailto:info@davidrakovsky.cz?subject=WEB%20%E2%80%93%20dotaz">
+            Napsat e-mail
+          </a>
+        </div>
+
+        <p class="cta-note">Preferuji psanou komunikaci. Odpovím do 24 hodin.</p>
+
+        <div class="contact-box">
+          <p><strong>Email:</strong> 📧 <a href="mailto:info@davidrakovsky.cz">info@davidrakovsky.cz</a></p>
+
+          <a href="https://www.facebook.com/davidrakovskywebdesign" target="_blank" rel="noopener" class="social-link">
+            <i class="fab fa-facebook"></i> Facebook
+          </a>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>© <span id="year"></span> David Rakovský · tvorba jednoduchých webů pro malé firmy</p>
+    </footer>
+
+  </div>
+
+  <script src="js/main.js" defer></script>
 </body>
 </html>
