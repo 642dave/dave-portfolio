@@ -301,6 +301,14 @@ button::-moz-focus-inner {
   margin: 0 0 24px;
 }
 
+.hero-subtitle {
+  margin-top: 1.25rem;
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #333;
+}
+
 /* Benefits */
 .benefits {
   list-style: none;
@@ -366,6 +374,7 @@ button::-moz-focus-inner {
   font-size: 1rem;
   color: var(--muted-2);
   margin-bottom: 2rem;
+  margin-left: 20px;
 }
 
 .skills-section,
@@ -615,6 +624,17 @@ button::-moz-focus-inner {
   background: var(--surface);
   font-size: 0.9rem;
   color: #444;
+}
+
+.footer a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  opacity: 0.9;
+}
+
+.footer a:hover {
+  opacity: 1;
 }
 
 /* =========================================
