@@ -583,6 +583,7 @@ button::-moz-focus-inner {
 /* Contact actions */
 .contact-actions {
   display: flex;
+  justify-content: flex-start;
   gap: 16px;
   flex-wrap: wrap;
   align-items: center;
@@ -613,7 +614,78 @@ button::-moz-focus-inner {
 .social-link { color: #6b5bff; }
 
 /* =========================================
-   12) FOOTER
+   12) FAQ (clickable, compact)
+   ========================================= */
+
+.faq-section {
+  margin-bottom: 2rem;
+}
+
+.faq-section .faq-item {
+  margin-top: 12px;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.55);
+  overflow: hidden; 
+}
+
+.faq-section .faq-item > summary {
+  list-style: none;             
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 1.02rem;
+  line-height: 1.25;
+  font-weight: 600;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.faq-section .faq-item > summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-section .faq-item > summary:hover {
+  background: rgba(0,0,0,0.03);
+}
+
+.faq-section .faq-item > summary::after {
+  content: "▾";
+  font-size: 1rem;
+  opacity: 0.75;
+  transform: rotate(0deg);
+  transition: transform 160ms ease;
+}
+
+.faq-section .faq-item[open] > summary::after {
+  transform: rotate(180deg);
+}
+
+.faq-section .faq-content {
+  padding: 0 16px 14px;
+  animation: faqFade 0.2s ease;
+}
+
+@keyframes faqFade {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.faq-section .faq-content p {
+  margin: 0;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.faq-section .faq-item > summary:focus-visible {
+  outline: 2px solid rgba(37, 99, 235, 0.35);
+  outline-offset: 2px;
+}
+
+/* =========================================
+   13) FOOTER
    ========================================= */
 
 .footer {
@@ -638,7 +710,7 @@ button::-moz-focus-inner {
 }
 
 /* =========================================
-   13) HELPERS
+   14) HELPERS
    ========================================= */
 
 .is-highlighted {
@@ -648,7 +720,7 @@ button::-moz-focus-inner {
 }
 
 /* =========================================
-   14) RESPONSIVENESS
+   15) RESPONSIVENESS
    ========================================= */
 
 @media (max-width: 900px) {
