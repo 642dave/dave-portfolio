@@ -403,6 +403,7 @@ button::-moz-focus-inner {
 }
 
 .pricing-card {
+  scroll-margin-top: 90px;
   background: var(--surface);
   border-radius: var(--radius);
   padding: 1.8rem;
@@ -713,10 +714,24 @@ button::-moz-focus-inner {
    14) HELPERS
    ========================================= */
 
-.is-highlighted {
-  outline: 2px solid rgba(30, 144, 255, 0.45);
-  box-shadow: 0 0 0 6px rgba(30, 144, 255, 0.10);
-  border-radius: 12px;
+.pricing-card.is-highlighted {
+  background: linear-gradient(
+    0deg,
+    rgba(30, 144, 255, 0.08),
+    rgba(30, 144, 255, 0.08)
+  );
+
+  border-color: rgba(30, 144, 255, 0.35);
+
+  transition: all 0.25s ease;
+}
+
+.pricing-card.is-highlighted h3 {
+  color: var(--accent);
+}
+
+.pricing-card.is-highlighted .btn {
+  border-color: var(--accent);
 }
 
 /* =========================================
