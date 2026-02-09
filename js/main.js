@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-
   // =========================
   // Mobile navigation toggle
   // =========================
@@ -14,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
       navToggle.setAttribute("aria-expanded", String(!expanded));
     });
 
-    nav.querySelectorAll("a").forEach(link => {
+    nav.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
         document.body.classList.remove("nav-open");
         navToggle.setAttribute("aria-expanded", "false");
@@ -23,15 +22,39 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ============
-  // Footer year 
+  // Footer year
   // ============
   const yearEl = document.getElementById("year");
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
+  if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
+  // =========================
+  // Helpers: header offset scroll
+  // =========================
+  function getHeaderOffsetPx() {
+    const header = document.querySelector(".header");
+    if (!header) return 0;
+    return header.offsetHeight + 12; // +12px = comfortable spacing under header
+  }
+
+  function smoothScrollToElement(el) {
+    if (!el) return;
+
+    const y = el.getBoundingClientRect().top + window.pageYOffset - getHeaderOffsetPx();
+
+    window.scrollTo({
+      top: Math.max(0, y),
+      behavior: "smooth",
+    });
+  }
+
+  function clearPricingHighlights() {
+    document
+      .querySelectorAll("[data-package-card].is-highlighted")
+      .forEach((el) => el.classList.remove("is-highlighted"));
   }
 
   // =========================
-  // Pricing highlight scroll (persistent selection)
+  // Pricing – scroll to card + highlight
   // =========================
   document.addEventListener("click", (e) => {
     const link = e.target.closest("[data-scroll-highlight]");
@@ -43,30 +66,36 @@ document.addEventListener("DOMContentLoaded", () => {
     const card = document.querySelector(`[data-package-card="${pkg}"]`);
     if (!card) return;
 
-    // Scroll precisely to the card
-    card.scrollIntoView({ behavior: "smooth", block: "start" });
+    // Close mobile nav if open (nice UX)
+    if (document.body.classList.contains("nav-open")) {
+      document.body.classList.remove("nav-open");
+      if (navToggle) navToggle.setAttribute("aria-expanded", "false");
+    }
 
-    // Remove previous selection
-    document.querySelectorAll("[data-package-card].is-highlighted")
-      .forEach((el) => el.classList.remove("is-highlighted"));
+    // 1) Scroll directly to the selected card (single, stable scroll)
+    smoothScrollToElement(card);
 
-    // Add persistent selection
-    setTimeout(() => {
+    // 2) Highlight selected card
+    clearPricingHighlights();
+    window.setTimeout(() => {
       card.classList.add("is-highlighted");
     }, 250);
   });
 
-  // Optional: click anywhere outside pricing cards -> remove selection
+  // =========================
+  // Click outside pricing -> remove highlight
+  // =========================
   document.addEventListener("click", (e) => {
-    const clickedCard = e.target.closest("[data-package-card]");
     const clickedLink = e.target.closest("[data-scroll-highlight]");
     if (clickedLink) return; // handled above
 
-    if (!clickedCard) {
-      document.querySelectorAll("[data-package-card].is-highlighted")
-        .forEach((el) => el.classList.remove("is-highlighted"));
+    const insidePricing = e.target.closest("#pricing");
+    if (!insidePricing) {
+      clearPricingHighlights();
+      return;
     }
+
+    const clickedCard = e.target.closest("[data-package-card]");
+    if (!clickedCard) clearPricingHighlights();
   });
-
-
 });

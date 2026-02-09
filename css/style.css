@@ -1,37 +1,59 @@
-/* =========================================
-   0) TOKENS / THEME
-   ========================================= */
+/* =========================================================
+   davidrakovsky.cz — style.css
+   Clean design system + global atmosphere (2026)
+   ========================================================= */
+
+/* =========================================================
+   0) DESIGN TOKENS
+   ========================================================= */
 
 :root {
-  --bg: #f4f4f7;
+  /* Brand / accents */
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --focus: rgba(37, 99, 235, 0.45);
+
+  /* Base surfaces & text */
+  --bg-main: #ffffff;
+  --bg-soft: #f4f6f9;
+
   --surface: #ffffff;
   --text: #222;
   --heading: #111;
   --muted: #555;
   --muted-2: #666;
 
-  --accent: #1e90ff;
-  --accent-hover: #1876d1;
+  /* Atmosphere intensity */
+  --ambient-blue: rgba(37, 99, 235, 0.10);
+  --ambient-dark: rgba(0, 0, 0, 0.04);
 
+  /* Cards */
+  --card-bg: rgba(255, 255, 255, 0.86);
+  --card-blur: 10px;
+  --border: rgba(0, 0, 0, 0.06);
+
+  /* Radius */
   --radius-sm: 10px;
   --radius: 12px;
   --radius-lg: 16px;
+  --radius-xl: 18px;
+  --radius-2xl: 20px;
 
-  --border: #e4e4e4;
-  --border-2: #e0e0e0;
-
-  --shadow-sm: 0 2px 4px rgba(0,0,0,0.04);
+  /* Shadows (soft hierarchy) */
+  --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 12px 30px rgba(15, 23, 42, 0.06);
+  --shadow-medium: 0 18px 40px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 25px 60px rgba(0, 0, 0, 0.12);
 
+  /* Layout */
   --container: 1200px;
   --container-pad: 90%;
-
-  --focus: rgba(30, 144, 255, 0.55);
+  --header-offset: 90px;
 }
 
-/* =========================================
-   1) RESET & BASE STYLES
-   ========================================= */
+/* =========================================================
+   1) RESET & BASE
+   ========================================================= */
 
 *,
 *::before,
@@ -42,12 +64,29 @@
 }
 
 html { scroll-behavior: smooth; }
+html, body { height: 100%; }
 
 body {
   font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background: var(--bg);
   color: var(--text);
   line-height: 1.6;
+
+  /* Global atmosphere base */
+  background: linear-gradient(180deg, var(--bg-main) 0%, var(--bg-soft) 100%);
+  position: relative;
+}
+
+/* Ambient light layers (under everything) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background:
+    radial-gradient(circle at 15% 10%, var(--ambient-blue), transparent 45%),
+    radial-gradient(circle at 85% 65%, var(--ambient-dark), transparent 50%);
 }
 
 /* Headings */
@@ -63,22 +102,82 @@ h1, h2, h3,
 h3 {
   font-size: 1.3rem;
   font-weight: 600;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
-/* =========================================
-   2) LAYOUT
-   ========================================= */
+/* Accessible focus */
+a, button { outline: none; }
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 10px;
+}
+
+a::-moz-focus-inner,
+button::-moz-focus-inner { border: 0; }
+
+/* Smooth anchor offset for sticky header */
+#services, #pricing, #process, #projects, #contact {
+  scroll-margin-top: var(--header-offset);
+}
+
+/* =========================================================
+   2) LAYOUT WRAPPER
+   ========================================================= */
 
 .page-wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background: transparent;
+  position: relative;
+  z-index: 0;
 }
 
-/* =========================================
+/* Ensure content stays above atmosphere layer */
+main, header, footer { position: relative; z-index: 1; }
+
+/* Main spacing */
+main {
+  display: grid;
+  gap: 28px;
+}
+
+/* Section "glass cards" for readability */
+main > section {
+  background: var(--card-bg);
+  backdrop-filter: blur(var(--card-blur));
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--border);
+
+  padding: clamp(2rem, 4vw, 3rem);
+}
+
+/* Hero stays "open" (not in a card) */
+main > .hero {
+  background: transparent;
+  backdrop-filter: none;
+  box-shadow: none;
+  border: none;
+}
+
+/* Container widths for content sections */
+.skills-section,
+.projects-section,
+.contact-section,
+.services-section,
+.pricing-section,
+.faq-section {
+  width: min(var(--container), var(--container-pad));
+  margin: 2rem auto 4rem auto;
+}
+
+/* =========================================================
    3) HEADER / NAVIGATION
-   ========================================= */
+   ========================================================= */
 
 .header {
   position: sticky;
@@ -91,11 +190,10 @@ h3 {
 
   padding: 1.2rem 2rem;
   background: var(--surface);
-  border-bottom: 1px solid var(--border-2);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
 }
 
-/* Logo */
 .logo {
   display: inline-flex;
   align-items: center;
@@ -105,13 +203,13 @@ h3 {
   height: 40px;
   border-radius: 999px;
 
-  font-family: "DM Sans", system-ui, sans-serif;
-  font-weight: 600;
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 700;
   letter-spacing: 0.14em;
   font-size: 0.9rem;
 
   color: #fff;
-  background: #2563eb;
+  background: var(--accent);
 
   cursor: pointer;
   user-select: none;
@@ -123,7 +221,6 @@ h3 {
   opacity: 0.92;
 }
 
-/* Desktop navigation */
 .navbar {
   display: flex;
   gap: 2rem;
@@ -134,7 +231,7 @@ h3 {
   text-decoration: none;
   color: #333;
   font-size: 0.95rem;
-  font-weight: 500;
+  font-weight: 600;
   padding-bottom: 2px;
   transition: color 0.2s ease;
 }
@@ -146,14 +243,14 @@ h3 {
   bottom: 0;
   width: 0;
   height: 2px;
-  background: #6b5bff;
+  background: var(--accent);
   transition: width 0.20s ease;
 }
 
-.navbar a:hover { color: #6b5bff; }
+.navbar a:hover { color: var(--accent); }
 .navbar a:hover::after { width: 100%; }
 
-/* Mobile navigation toggle button (hidden on desktop) */
+/* Mobile nav toggle */
 .nav-toggle {
   display: none;
   border: none;
@@ -173,34 +270,10 @@ h3 {
 
 .nav-toggle span + span { margin-top: 5px; }
 
-/* =========================================
-   4) ACCESSIBLE FOCUS (fix "ugly blue boxes")
-   ========================================= */
+/* =========================================================
+   4) BUTTON SYSTEM
+   ========================================================= */
 
-/* Remove default focus ring, replace with consistent custom ring */
-a, button {
-  outline: none;
-}
-
-/* Only show focus ring for keyboard users */
-a:focus-visible,
-button:focus-visible {
-  outline: 3px solid var(--focus);
-  outline-offset: 3px;
-  border-radius: 10px;
-}
-
-/* Optional: if some browsers still show inner focus */
-a::-moz-focus-inner,
-button::-moz-focus-inner {
-  border: 0;
-}
-
-/* =========================================
-   5) BUTTONS (unified system)
-   ========================================= */
-
-/* Base button style for .btn + .cta-button + .secondary-button */
 .btn,
 .cta-button,
 .secondary-button {
@@ -212,12 +285,12 @@ button::-moz-focus-inner {
   padding: 0 22px;
 
   border-radius: var(--radius-sm);
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
   line-height: 1;
 
   border: 2px solid transparent;
-  transition: background-color 0.2s ease, transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  transition: background-color 0.2s ease, transform 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
 }
 
@@ -226,6 +299,7 @@ button::-moz-focus-inner {
 .cta-button {
   background: var(--accent);
   color: #fff;
+  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.18);
 }
 
 .btn:hover,
@@ -244,39 +318,34 @@ button::-moz-focus-inner {
 
 .ghost-btn:hover,
 .secondary-button:hover {
-  background: rgba(30, 144, 255, 0.08);
+  background: rgba(37, 99, 235, 0.08);
   transform: translateY(-1px);
 }
 
-/* Smaller button for cards if needed */
+/* Card button sizing */
 .btn {
   min-height: 44px;
   padding: 0 18px;
 }
 
-/* Text link (secondary action) */
+/* Text link */
 .text-link {
   display: inline-block;
   margin-top: 12px;
   color: var(--accent);
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .text-link:hover { text-decoration: underline; }
 
-.text-link:focus-visible {
-  outline: 3px solid var(--focus);
-  outline-offset: 3px;
-  border-radius: 10px;
-}
-
-/* =========================================
-   6) HERO SECTION
-   ========================================= */
+/* =========================================================
+   5) HERO
+   ========================================================= */
 
 .hero {
   display: grid;
+  position: relative;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
   align-items: center;
   gap: 3rem;
@@ -285,6 +354,20 @@ button::-moz-focus-inner {
 
   width: min(var(--container), var(--container-pad));
   margin: 0 auto;
+}
+
+/* Local hero highlight */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background: radial-gradient(
+    circle at 30% 20%,
+    rgba(37, 99, 235, 0.14),
+    transparent 60%
+  );
 }
 
 .hero-title-main {
@@ -304,12 +387,11 @@ button::-moz-focus-inner {
 .hero-subtitle {
   margin-top: 1.25rem;
   font-family: "Inter", system-ui, sans-serif;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1.05rem;
   color: #333;
 }
 
-/* Benefits */
 .benefits {
   list-style: none;
   padding: 0;
@@ -318,9 +400,6 @@ button::-moz-focus-inner {
   gap: 10px;
 }
 
-.benefits li { margin: 0; }
-
-/* Hero actions */
 .hero-actions {
   display: flex;
   gap: 12px;
@@ -331,10 +410,10 @@ button::-moz-focus-inner {
 .cta-note {
   margin-top: 10px;
   font-size: 0.9rem;
-  opacity: 0.8;
+  opacity: 0.82;
 }
 
-/* Photo / mockup */
+/* Hero photo mockup */
 .hero-photo {
   position: relative;
   display: grid;
@@ -357,13 +436,13 @@ button::-moz-focus-inner {
   width: 92%;
   height: auto;
   object-fit: contain;
-  border-radius: 14px; /* jemné zaoblení, můžeš dát 0 */
+  border-radius: 14px;
   filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.18));
 }
 
-/* =========================================
-   7) SECTIONS – GENERIC
-   ========================================= */
+/* =========================================================
+   6) GENERIC SECTION TYPOGRAPHY
+   ========================================================= */
 
 .section-title {
   font-size: 2rem;
@@ -374,26 +453,11 @@ button::-moz-focus-inner {
   font-size: 1rem;
   color: var(--muted-2);
   margin-bottom: 2rem;
-  margin-left: 20px;
 }
 
-.skills-section,
-.projects-section,
-.contact-section,
-.services-section,
-.pricing-section {
-  width: min(var(--container), var(--container-pad));
-  margin: 2rem auto 4rem auto;
-}
-
-/* Smooth anchor offset for sticky header */
-#services, #pricing, #process, #projects, #contact {
-  scroll-margin-top: 90px;
-}
-
-/* =========================================
-   8) PRICING SECTION
-   ========================================= */
+/* =========================================================
+   7) PRICING
+   ========================================================= */
 
 .pricing-grid {
   display: grid;
@@ -403,12 +467,18 @@ button::-moz-focus-inner {
 }
 
 .pricing-card {
-  scroll-margin-top: 90px;
   background: var(--surface);
   border-radius: var(--radius);
   padding: 1.8rem;
   box-shadow: var(--shadow-md);
   border: 1px solid transparent;
+
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
 }
 
 .pricing-card h3 {
@@ -423,33 +493,23 @@ button::-moz-focus-inner {
   line-height: 1.6;
 }
 
-/* Featured card */
+/* Featured */
 .pricing-card.is-featured {
-  border: 2px solid rgba(30, 144, 255, 0.55);
+  border: 2px solid rgba(37, 99, 235, 0.45);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
 .pricing-card:not(.is-featured) .btn {
-  opacity: 0.88;
+  opacity: 0.92;
 }
 
-.pricing-card.is-featured ul {
-  margin-bottom: 12px;
-}
-
-.pricing-card.is-featured .btn {
-  min-height: 52px;
-  padding: 0 22px;
-}
-
-/* Badge + notes */
 .plan-badge {
   display: inline-block;
   font-size: 0.85rem;
-  font-weight: 700;
+  font-weight: 800;
   padding: 6px 10px;
   border-radius: 999px;
-  background: rgba(30, 144, 255, 0.12);
+  background: rgba(37, 99, 235, 0.12);
   color: var(--accent);
   margin: 0 0 12px;
 }
@@ -459,7 +519,6 @@ button::-moz-focus-inner {
   color: #444;
 }
 
-/* Pricing actions: stacked */
 .pricing-card-actions {
   margin-top: 18px;
   display: flex;
@@ -468,14 +527,14 @@ button::-moz-focus-inner {
   align-items: flex-start;
 }
 
-/* Pricing CTA box */
+/* CTA box */
 .pricing-cta {
   margin-top: 1.5rem;
   padding: 1.5rem;
   background: var(--surface);
-  border: 1px solid var(--border);
+  border: 1px solid rgba(0,0,0,0.10);
   border-radius: var(--radius);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-soft);
 }
 
 .pricing-cta-title {
@@ -503,9 +562,17 @@ button::-moz-focus-inner {
   color: var(--muted-2);
 }
 
-/* =========================================
-   9) SKILLS / SERVICES GRIDS
-   ========================================= */
+/* Highlight helper (used by JS scroll highlight) */
+.pricing-card.is-highlighted {
+  background: linear-gradient(0deg, rgba(37, 99, 235, 0.08), rgba(37, 99, 235, 0.08));
+  border-color: rgba(37, 99, 235, 0.30);
+}
+
+.pricing-card.is-highlighted h3 { color: var(--accent); }
+
+/* =========================================================
+   8) SERVICES / SKILLS
+   ========================================================= */
 
 .skills-grid {
   display: grid;
@@ -517,8 +584,8 @@ button::-moz-focus-inner {
   background: var(--surface);
   padding: 1.5rem;
   border-radius: var(--radius);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(0,0,0,0.10);
+  box-shadow: var(--shadow-soft);
 }
 
 .skill-block h3 {
@@ -526,13 +593,11 @@ button::-moz-focus-inner {
   font-size: 1.1rem;
 }
 
-.skill-block p + p {
-    margin-top: 0.6rem;
-}
+.skill-block p + p { margin-top: 0.6rem; }
 
-/* =========================================
-   10) PROJECTS SECTION
-   ========================================= */
+/* =========================================================
+   9) PROJECTS
+   ========================================================= */
 
 .projects-grid {
   display: grid;
@@ -541,11 +606,18 @@ button::-moz-focus-inner {
 }
 
 .project-card {
-  background: var(--surface);
+  background: #fff;
   padding: 1.5rem;
-  border-radius: var(--radius);
+  border-radius: var(--radius-2xl);
   border: 1px solid var(--border);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-medium);
+
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
 }
 
 .project-card h3 {
@@ -553,35 +625,32 @@ button::-moz-focus-inner {
   font-size: 1.2rem;
 }
 
-.project-meta { margin-bottom: .5rem; }
+.project-meta { margin-bottom: 0.5rem; }
 
 .project-actions {
   display: flex;
-  gap: .75rem;
+  gap: 0.75rem;
   flex-wrap: wrap;
   margin-top: 1rem;
 }
 
-/* Badge */
 .badge {
   display: inline-block;
   padding: 0.2rem 0.55rem;
-  background: #ffe08a;
-  color: #6b5b00;
-  border-radius: 6px;
+  background: rgba(37, 99, 235, 0.12);
+  color: var(--accent);
+  border-radius: 8px;
   font-size: 0.75rem;
-  font-weight: 600;
-  margin-left: 0.5rem;
-  border: 1px solid #e9c46a;
+  font-weight: 800;
+  border: 1px solid rgba(37, 99, 235, 0.18);
 }
 
-/* =========================================
-   11) CONTACT SECTION
-   ========================================= */
+/* =========================================================
+   10) CONTACT
+   ========================================================= */
 
 .contact-section p { margin-bottom: 0.8rem; }
 
-/* Contact actions */
 .contact-actions {
   display: flex;
   justify-content: flex-start;
@@ -594,63 +663,59 @@ button::-moz-focus-inner {
 .contact-box {
   display: flex;
   flex-direction: column;
-  gap: 0.1rem;
+  gap: 0.25rem;
   background: var(--surface);
   padding: 1.5rem;
   border-radius: var(--radius);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(0,0,0,0.10);
+  box-shadow: var(--shadow-soft);
   max-width: 500px;
 }
 
 .contact-box p { margin: 0; }
 
-.contact-box a {
-  color: #6b5bff;
+.contact-box a,
+.social-link {
+  color: var(--accent);
   text-decoration: none;
+  font-weight: 700;
 }
 
-.contact-box a:hover { text-decoration: underline; }
+.contact-box a:hover,
+.social-link:hover { text-decoration: underline; }
 
-.social-link { color: #6b5bff; }
+/* =========================================================
+   11) FAQ
+   ========================================================= */
 
-/* =========================================
-   12) FAQ (clickable, compact)
-   ========================================= */
-
-.faq-section {
-  margin-bottom: 2rem;
-}
+.faq-section { margin-bottom: 2rem; }
 
 .faq-section .faq-item {
   margin-top: 12px;
-  border: 1px solid rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.10);
   border-radius: 14px;
   background: rgba(255,255,255,0.55);
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 .faq-section .faq-item > summary {
-  list-style: none;             
+  list-style: none;
   cursor: pointer;
   padding: 14px 16px;
   font-size: 1.02rem;
   line-height: 1.25;
-  font-weight: 600;
+  font-weight: 800;
   margin: 0;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
 }
 
-.faq-section .faq-item > summary::-webkit-details-marker {
-  display: none;
-}
+.faq-section .faq-item > summary::-webkit-details-marker { display: none; }
 
-.faq-section .faq-item > summary:hover {
-  background: rgba(0,0,0,0.03);
-}
+.faq-section .faq-item > summary:hover { background: rgba(0,0,0,0.03); }
 
 .faq-section .faq-item > summary::after {
   content: "▾";
@@ -660,9 +725,7 @@ button::-moz-focus-inner {
   transition: transform 160ms ease;
 }
 
-.faq-section .faq-item[open] > summary::after {
-  transform: rotate(180deg);
-}
+.faq-section .faq-item[open] > summary::after { transform: rotate(180deg); }
 
 .faq-section .faq-content {
   padding: 0 16px 14px;
@@ -677,23 +740,18 @@ button::-moz-focus-inner {
 .faq-section .faq-content p {
   margin: 0;
   line-height: 1.6;
-  opacity: 0.9;
+  opacity: 0.92;
 }
 
-.faq-section .faq-item > summary:focus-visible {
-  outline: 2px solid rgba(37, 99, 235, 0.35);
-  outline-offset: 2px;
-}
-
-/* =========================================
-   13) FOOTER
-   ========================================= */
+/* =========================================================
+   12) FOOTER
+   ========================================================= */
 
 .footer {
   margin-top: auto;
   padding: 1.5rem;
   text-align: center;
-  border-top: 1px solid var(--border-2);
+  border-top: 1px solid rgba(0,0,0,0.10);
   background: var(--surface);
   font-size: 0.9rem;
   color: #444;
@@ -706,37 +764,11 @@ button::-moz-focus-inner {
   opacity: 0.9;
 }
 
-.footer a:hover {
-  opacity: 1;
-}
+.footer a:hover { opacity: 1; }
 
-/* =========================================
-   14) HELPERS
-   ========================================= */
-
-.pricing-card.is-highlighted {
-  background: linear-gradient(
-    0deg,
-    rgba(30, 144, 255, 0.08),
-    rgba(30, 144, 255, 0.08)
-  );
-
-  border-color: rgba(30, 144, 255, 0.35);
-
-  transition: all 0.25s ease;
-}
-
-.pricing-card.is-highlighted h3 {
-  color: var(--accent);
-}
-
-.pricing-card.is-highlighted .btn {
-  border-color: var(--accent);
-}
-
-/* =========================================
-   15) RESPONSIVENESS
-   ========================================= */
+/* =========================================================
+   13) RESPONSIVE
+   ========================================================= */
 
 @media (max-width: 900px) {
   .hero {
@@ -748,10 +780,11 @@ button::-moz-focus-inner {
   }
 
   .hero-content { order: 1; }
+
   .hero-photo {
-    order: 2;                
+    order: 2;
     width: min(420px, 92vw);
-    aspect-ratio: auto;     
+    aspect-ratio: auto;
     margin: 8px auto 0;
   }
 
@@ -774,14 +807,20 @@ button::-moz-focus-inner {
 }
 
 @media (max-width: 768px) {
+  body::before { opacity: 0.65; }
+
+  main { gap: 18px; }
+  main > section { border-radius: 16px; }
+
   .skills-grid,
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
+  .projects-grid { grid-template-columns: 1fr; }
 
   .skills-section,
   .projects-section,
-  .services-section {
+  .services-section,
+  .pricing-section,
+  .contact-section,
+  .faq-section {
     width: 100%;
     padding: 0 1rem;
   }
@@ -792,9 +831,7 @@ button::-moz-focus-inner {
     margin: 0 auto;
   }
 
-  .header {
-    padding: 0.8rem 1rem;
-  }
+  .header { padding: 0.8rem 1rem; }
 
   .nav-toggle { display: block; }
 
@@ -809,11 +846,10 @@ button::-moz-focus-inner {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    flex-wrap: nowrap;
 
     padding: 0;
     margin: 0;
-    border-bottom: 1px solid var(--border-2);
+    border-bottom: 1px solid rgba(0,0,0,0.10);
 
     max-height: 0;
     overflow: hidden;
@@ -840,30 +876,132 @@ button::-moz-focus-inner {
   }
 }
 
+/* =========================================================
+   MOBILE LAYOUT — 520px
+   ========================================================= */
+
 @media (max-width: 520px) {
-  .cta-button,
-  .secondary-button {
+
+  /* ---------- Header ---------- */
+
+  .header {
+    padding: 0.7rem 1rem;
+  }
+
+  /* ---------- Main vertical rhythm ---------- */
+
+  main {
+    gap: 22px;               /* hlavní spacing mezi sekcemi */
+    padding-top: 12px;       /* odsazení od sticky header */
+  }
+
+  /* Remove desktop section margins (grid now controls spacing) */
+
+  .skills-section,
+  .projects-section,
+  .contact-section,
+  .services-section,
+  .pricing-section,
+  .faq-section {
+    margin: 0 auto;
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Slight premium padding inside section cards */
+
+  main > section:not(.hero) {
+    padding-top: 2.25rem;
+  }
+
+  /* ---------- HERO ---------- */
+
+  main > .hero {
+    padding: 1.1rem 1rem;
+    margin-top: 0.75rem;
+    gap: 0.9rem;
     width: 100%;
   }
 
-  .hero-photo {
-    width: min(360px, 92vw);
-   }
-  
-  .hero-mockup {
-    max-width: 340px;
+  /* Softer background glow */
+
+  .hero::before {
+    opacity: 0.55;
   }
 
-  .hero-visual-bg {
-     opacity: 0.55; 
-  } 
+  /* Hero title */
+
+  .hero-title-main {
+    font-size: clamp(28px, 8.2vw, 40px);
+    line-height: 1.00;
+    margin-bottom: 10px;
+  }
+
+  /* Hero paragraph */
+
+  .hero-text {
+    font-size: 0.98rem;
+    line-height: 1.45;
+    margin-bottom: 12px;
+    max-width: 46ch;
+  }
+
+  /* Subtitle */
+
+  .hero-subtitle {
+    margin-top: 0.7rem;
+    font-size: 0.98rem;
+  }
+
+  /* Benefits */
+
+  .benefits {
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+
+  .benefits li {
+    font-size: 0.96rem;
+    line-height: 1.35;
+  }
+
+  /* CTA */
+
+  .hero-actions {
+    margin-top: 0.75rem;
+  }
+
+  .cta-button,
+  .secondary-button {
+    width: 100%;
+    min-height: 48px;
+  }
+
+  .cta-note {
+    font-size: 0.86rem;
+    margin-top: 8px;
+  }
+
+  @media (max-width: 520px) {
+  /* PROCESS list: only mobile */
+  #process ol.section-text {
+    padding-left: 1.35rem;      /* odsazení čísel od kraje */
+    margin-left: 0;             /* jistota */
+  }
+
+  #process ol.section-text li {
+    margin: 0.75rem 0;          /* více “vzduchu” mezi kroky */
+    line-height: 1.5;           /* čitelnější na mobilu */
+  }
+
+  /* ---------- Pricing CTA ---------- */
 
   .pricing-cta-actions {
     flex-direction: column;
     align-items: stretch;
   }
+
 }
 
-@media (max-width: 400px) {
-  .section-text li { margin-left: 20px; }
-}
+
