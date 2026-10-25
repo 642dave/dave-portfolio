@@ -263,63 +263,81 @@
           id="show-review-form"
           aria-expanded="false"
           aria-controls="review-form">
+          Napsat recenzi
+        </button>
 
-        Napsat recenzi
+        <form
+          id="review-form"
+          class="review-form"
+          action="https://formsubmit.app/f/qaf6292q2uf"
+          method="POST"
+          hidden>
+          <div class="form-group">
+            <label for="review-name">Jméno</label>
+            <input
+              type="text"
+              id="review-name"
+              name="name"
+              maxlength="80"
+              required>
+          </div>
 
-        </button>     
+          <div class="form-group">
+            <label for="review-type">Typ zkušenosti</label>
+            <select id="review-type" name="experience_type" required>
+              <option value="">Vyber možnost</option>
+              <option value="Zakoupený obraz">Zakoupený obraz</option>
+              <option value="Kresba na zakázku">Kresba na zakázku</option>
+            </select>
+          </div>
 
-        <form id="review-form" class="review-form" hidden>
-            <div class="form-group">
-                <label for="review-name">Jméno</label>
-                <input
-                    type="text"
-                    id="review-name"
-                    name="name"
-                    maxlength="80"
-                    required>
+          <fieldset class="form-group rating-group">
+            <legend>Hodnocení</legend>
+            <div class="rating-options">
+              <label><input type="radio" name="rating" value="5" required> ★★★★★</label>
+              <label><input type="radio" name="rating" value="4"> ★★★★</label>
+              <label><input type="radio" name="rating" value="3"> ★★★</label>
+              <label><input type="radio" name="rating" value="2"> ★★</label>
+              <label><input type="radio" name="rating" value="1"> ★</label>
             </div>
+          </fieldset>
 
-            <div class="form-group">
-                <label for="review-type">Typ zkušenosti</label>
-                <select id="review-type" name="review_type" required>
-                    <option value="">Vyber možnost</option>
-                    <option value="Zakoupený obraz">Zakoupený obraz</option>
-                    <option value="Kresba na zakázku">Kresba na zakázku</option>
-                </select>
-            </div>
+          <div class="form-group">
+            <label for="review-text">Tvoje zkušenost</label>
+            <textarea
+              id="review-text"
+              name="testimonial"
+              rows="5"
+              maxlength="2000"
+              required></textarea>
+          </div>
 
-            <fieldset class="form-group rating-group">
-                <legend>Hodnocení</legend>
+          <div class="form-group review-consent-group">
+            <label for="review-permission">
+              <input
+                type="checkbox"
+                id="review-permission"
+                name="permission"
+                value="yes"
+                required>
+              Souhlasím se zveřejněním své recenze na webu Rocky Art se svým jménem.
+            </label>
+          </div>
 
-                <div class="rating-options">
-                    <label><input type="radio" name="rating" value="5" required> ★★★★★</label>
-                    <label><input type="radio" name="rating" value="4"> ★★★★</label>
-                    <label><input type="radio" name="rating" value="3"> ★★★</label>
-                    <label><input type="radio" name="rating" value="2"> ★★</label>
-                    <label><input type="radio" name="rating" value="1"> ★</label>
-                </div>
-            </fieldset>
+          <button type="submit" class="cta-button">Odeslat recenzi</button>
 
-                <div class="form-group">
-                    <label for="review-text">Tvoje zkušenost</label>
-                    <textarea
-                        id="review-text"
-                        name="review"
-                        rows="5"
-                        maxlength="2000"
-                        required
-                    ></textarea>
-                </div>
+          <p class="review-form-note">
+            Recenze se zveřejní až po mém schválení.
+          </p>
 
-            <button type="submit" class="cta-button">
-                Odeslat recenzi
-            </button>
-
-            <p class="review-form-note">
-                Recenze se zveřejní až po mém schválení.
-            </p>
-          </form>
-
+          <input type="hidden" name="_subject" value="Nová recenze Rocky Art">
+          <input
+            type="text"
+            name="_gotcha"
+            tabindex="-1"
+            autocomplete="off"
+            style="display:none">
+        </form>
         </div>
       </section>
 

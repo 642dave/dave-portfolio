@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Review form toggle
+// Review form toggle and submission
 document.addEventListener("DOMContentLoaded", () => {
     const toggleButton = document.getElementById("show-review-form");
     const reviewForm = document.getElementById("review-form");
@@ -93,7 +93,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         reviewForm.hidden = !isHidden;
         toggleButton.setAttribute("aria-expanded", String(isHidden));
-
         toggleButton.textContent = isHidden
             ? "Skrýt formulář"
             : "Napsat recenzi";
@@ -109,4 +108,59 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
     });
+
+    const submitButton = reviewForm.querySelector("button[type='submit']");
+
+    reviewForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        if (!reviewForm.reportValidity()) return;
+
+        const originalButtonText = submitButton.textContent;
+        submitButton.disabled = true;
+        submitButton.textContent = "Odesílám…";
+
+        try {
+            const formData = new FormData(reviewForm);
+            formData.set("_ts", String(Date.now()));
+
+            const response = await fetch(reviewForm.action, {
+                method: "POST",
+                body: formData,
+                headers: {
+                    Accept: "application/json"
+                }
+            });
+
+            const result = await response.json();
+
+            if (!response.ok || !result.ok) {
+                throw new Error(result.error?.message || "Odeslání se nezdařilo.");
+            }
+
+            reviewForm.reset();
+
+            let confirmation = reviewForm.querySelector(".review-form-confirmation");
+
+            if (!confirmation) {
+                confirmation = document.createElement("p");
+                confirmation.className = "review-form-confirmation";
+                confirmation.setAttribute("role", "status");
+                reviewForm.appendChild(confirmation);
+            }
+
+            confirmation.textContent =
+                "Děkuji za recenzi! Po kontrole rozhodnu o jejím zveřejnění.";
+
+        } catch (error) {
+            alert(
+                "Recenzi se nepodařilo odeslat. Zkontroluj připojení a zkus to znovu. " +
+                "Podrobnost: " + error.message
+            );
+        } finally {
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
+        }
+    });
 });
+
