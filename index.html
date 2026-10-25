@@ -234,6 +234,95 @@
         </details>
       </section>
 
+      <!-- Rocky Art Reviews Section -->
+      <section id="reviews" class="reviews-section">
+        <h2 class="section-title">Zkušenosti s Rocky Art</h2>
+        <p class="section-intro">
+            Každé dílo má svůj příběh. A stejně tak i zkušenost člověka,
+            který si ho odnese domů nebo se mnou spolupracuje na zakázce.
+        </p>
+
+        <div class="reviews-list">
+          <p class="reviews-empty">
+            Tady brzy najdeš zkušenosti lidí, kteří se rozhodli dát
+            Rocky Art místo ve svém příběhu.
+          </p>
+        </div>
+
+        <div class="review-form-wrapper">
+          <h3>Poděl se o svou zkušenost</h3>
+
+          <p>
+            Zakoupil/a sis můj obraz nebo jsme společně vytvořili
+            kresbu na zakázku? Budu rád, když se podělíš o svou zkušenost.
+          </p>
+
+        <button
+          type="button"
+          class="cta-button"
+          id="show-review-form"
+          aria-expanded="false"
+          aria-controls="review-form">
+
+        Napsat recenzi
+
+        </button>     
+
+        <form id="review-form" class="review-form" hidden>
+            <div class="form-group">
+                <label for="review-name">Jméno</label>
+                <input
+                    type="text"
+                    id="review-name"
+                    name="name"
+                    maxlength="80"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="review-type">Typ zkušenosti</label>
+                <select id="review-type" name="review_type" required>
+                    <option value="">Vyber možnost</option>
+                    <option value="Zakoupený obraz">Zakoupený obraz</option>
+                    <option value="Kresba na zakázku">Kresba na zakázku</option>
+                </select>
+            </div>
+
+            <fieldset class="form-group rating-group">
+                <legend>Hodnocení</legend>
+
+                <div class="rating-options">
+                    <label><input type="radio" name="rating" value="5" required> ★★★★★</label>
+                    <label><input type="radio" name="rating" value="4"> ★★★★</label>
+                    <label><input type="radio" name="rating" value="3"> ★★★</label>
+                    <label><input type="radio" name="rating" value="2"> ★★</label>
+                    <label><input type="radio" name="rating" value="1"> ★</label>
+                </div>
+            </fieldset>
+
+                <div class="form-group">
+                    <label for="review-text">Tvoje zkušenost</label>
+                    <textarea
+                        id="review-text"
+                        name="review"
+                        rows="5"
+                        maxlength="2000"
+                        required
+                    ></textarea>
+                </div>
+
+            <button type="submit" class="cta-button">
+                Odeslat recenzi
+            </button>
+
+            <p class="review-form-note">
+                Recenze se zveřejní až po mém schválení.
+            </p>
+          </form>
+
+        </div>
+      </section>
+
       <section id="contact" class="contact-section">
         <h2 class="section-title">Kontakt</h2>
         <p>

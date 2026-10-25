@@ -820,3 +820,151 @@ main > .hero {
         width: min(1500px, 90%);
     }
 }
+
+/* Rocky Art Reviews Section */
+.reviews-section {
+width: min(1500px, 90%);
+margin: 2rem auto 4rem;
+padding: 2.5rem;
+border: 1px solid rgba(255, 255, 255, 0.07);
+border-radius: 18px;
+background: rgba(35, 32, 30, 0.75);
+box-sizing: border-box;
+}
+
+.reviews-section .section-title {
+margin-bottom: 1rem;
+}
+
+.section-intro {
+max-width: 800px;
+line-height: 1.8;
+color: #c8c0b5;
+}
+
+.reviews-list {
+margin: 2rem 0;
+}
+
+.reviews-empty {
+padding: 1.25rem;
+border-left: 3px solid #c6a878;
+background: rgba(255, 255, 255, 0.025);
+color: #bdb4a8;
+line-height: 1.7;
+}
+
+.review-form-wrapper {
+max-width: 760px;
+margin-top: 2.5rem;
+padding: 2rem;
+border: 1px solid rgba(198, 168, 120, 0.2);
+border-radius: 14px;
+background: rgba(0, 0, 0, 0.12);
+box-sizing: border-box;
+}
+
+.review-form-wrapper h3 {
+margin-top: 0;
+margin-bottom: 0.75rem;
+}
+
+.review-form-wrapper > p {
+color: #c8c0b5;
+line-height: 1.7;
+}
+
+.review-form {
+display: grid;
+gap: 1.25rem;
+margin-top: 1.75rem;
+}
+
+.review-form[hidden] {
+display: none;
+}
+
+.form-group {
+display: grid;
+gap: 0.55rem;
+min-width: 0;
+margin: 0;
+}
+
+.form-group label,
+.form-group legend {
+color: #e4d9c8;
+font-weight: 500;
+}
+
+.review-form input[type="text"],
+.review-form select,
+.review-form textarea {
+width: 100%;
+padding: 0.85rem 1rem;
+border: 1px solid rgba(255, 255, 255, 0.14);
+border-radius: 8px;
+background: #292522;
+color: #f1ece5;
+font: inherit;
+box-sizing: border-box;
+}
+
+.review-form textarea {
+min-height: 140px;
+resize: vertical;
+}
+
+.review-form input:focus,
+.review-form select:focus,
+.review-form textarea:focus {
+outline: 2px solid #c6a878;
+outline-offset: 2px;
+}
+
+.rating-group {
+padding: 0;
+border: 0;
+}
+
+.rating-options {
+display: flex;
+flex-wrap: wrap;
+gap: 0.75rem;
+}
+
+.rating-options label {
+color: #c6a878;
+cursor: pointer;
+font-size: 1.1rem;
+}
+
+.rating-options input {
+accent-color: #c6a878;
+}
+
+.review-form-note {
+margin: 0;
+color: #aaa096;
+font-size: 0.9rem;
+line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+.reviews-section {
+width: 92%;
+padding: 1.25rem;
+}
+
+```
+.review-form-wrapper {
+    padding: 1.25rem;
+}
+
+.rating-options {
+    gap: 0.5rem;
+}
+```
+
+}
+

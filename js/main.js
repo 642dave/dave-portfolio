@@ -80,3 +80,33 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+// Review form toggle
+document.addEventListener("DOMContentLoaded", () => {
+    const toggleButton = document.getElementById("show-review-form");
+    const reviewForm = document.getElementById("review-form");
+
+    if (!toggleButton || !reviewForm) return;
+
+    toggleButton.addEventListener("click", () => {
+        const isHidden = reviewForm.hidden;
+
+        reviewForm.hidden = !isHidden;
+        toggleButton.setAttribute("aria-expanded", String(isHidden));
+
+        toggleButton.textContent = isHidden
+            ? "Skrýt formulář"
+            : "Napsat recenzi";
+
+        if (isHidden) {
+            reviewForm.scrollIntoView({
+                behavior: "smooth",
+                block: "nearest"
+            });
+
+            reviewForm.querySelector("input[name='name']").focus({
+                preventScroll: true
+            });
+        }
+    });
+});
