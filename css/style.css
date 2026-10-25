@@ -803,3 +803,20 @@ main > .hero {
 .lightbox-close:hover {
     color: #d6b36a;
 }
+
+/* Wide screens – Rocky Art */
+@media (min-width: 1700px) {
+    main > .hero {
+        width: min(1500px, 90%);
+    }
+}
+
+/* Wide screens – content sections */
+@media (min-width: 1700px) {
+    .projects-section,
+    .contact-section,
+    .services-section,
+    .faq-section {
+        width: min(1500px, 90%);
+    }
+}
