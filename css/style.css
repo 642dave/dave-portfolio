@@ -956,7 +956,6 @@ width: 92%;
 padding: 1.25rem;
 }
 
-```
 .review-form-wrapper {
     padding: 1.25rem;
 }
@@ -964,7 +963,61 @@ padding: 1.25rem;
 .rating-options {
     gap: 0.5rem;
 }
-```
 
+}
+
+/* Individual customer reviews */
+.review-card {
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+    border: 1px solid rgba(198, 168, 120, 0.25);
+    border-left: 3px solid #c6a878;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.review-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.review-card-name {
+    margin: 0;
+    color: #f0e5d3;
+    font-size: 1.1rem;
+}
+
+.review-card-rating {
+    color: #c6a878;
+    letter-spacing: 0.08em;
+}
+
+.review-card-text {
+    margin: 0;
+    color: #dbd1c4;
+    line-height: 1.7;
+    white-space: pre-line;
+}
+
+.review-card-type {
+    display: block;
+    margin-top: 1rem;
+    color: #bdb4a8;
+    font-size: 0.85rem;
+}
+
+@media (max-width: 480px) {
+    .review-card {
+        padding: 1rem;
+    }
+
+    .review-card-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
 }
 
