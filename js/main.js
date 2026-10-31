@@ -164,3 +164,71 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+// Commission inquiry form submission
+document.addEventListener("DOMContentLoaded", () => {
+    const inquiryForm = document.querySelector("#inquiry form");
+
+    if (!inquiryForm) return;
+
+    const submitButton = inquiryForm.querySelector("button[type='submit']");
+
+    const confirmation = document.createElement("div");
+    confirmation.className = "inquiry-form-confirmation";
+    confirmation.setAttribute("role", "status");
+    confirmation.setAttribute("aria-live", "polite");
+    confirmation.hidden = true;
+
+    inquiryForm.insertAdjacentElement("afterend", confirmation);
+
+    inquiryForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        if (!inquiryForm.reportValidity()) return;
+
+        const originalButtonText = submitButton.textContent;
+
+        submitButton.disabled = true;
+        submitButton.textContent = "Odesílám…";
+        confirmation.hidden = true;
+
+        try {
+            const formData = new FormData(inquiryForm);
+            formData.set("_ts", String(Date.now()));
+
+            const response = await fetch(inquiryForm.action, {
+                method: "POST",
+                body: formData,
+                headers: {
+                    Accept: "application/json"
+                }
+            });
+
+            const result = await response.json();
+
+            if (!response.ok || !result.ok) {
+                throw new Error(
+                    result.error?.message || "Odeslání se nezdařilo."
+                );
+            }
+
+            inquiryForm.reset();
+            inquiryForm.hidden = true;
+
+            confirmation.className = "inquiry-form-confirmation success";
+            confirmation.textContent =
+                "Poptávka byla úspěšně odeslána. Děkuji za tvůj zájem. Ozvu se ti co nejdříve.";
+            confirmation.hidden = false;
+
+        } catch (error) {
+            confirmation.className = "inquiry-form-confirmation error";
+            confirmation.textContent =
+                "Poptávku se nepodařilo odeslat. Zkontroluj připojení a zkus to znovu.";
+            confirmation.hidden = false;
+
+        } finally {
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
+        }
+    });
+});
+

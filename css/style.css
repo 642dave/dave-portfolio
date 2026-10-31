@@ -898,6 +898,7 @@ font-weight: 500;
 }
 
 .review-form input[type="text"],
+.review-form input[type="email"],
 .review-form select,
 .review-form textarea {
 width: 100%;
@@ -1036,4 +1037,94 @@ padding: 1.25rem;
 
 .project-card-link:hover h3 {
     color: #c6a878;
+}
+
+/* Commission pricing table */
+.pricing-table-wrapper {
+    width: 100%;
+    margin: 2rem 0 1.5rem;
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: rgba(0, 0, 0, 0.12);
+}
+
+.pricing-table {
+    width: 100%;
+    min-width: 650px;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.pricing-table th,
+.pricing-table td {
+    padding: 1rem 1.2rem;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+}
+
+.pricing-table th {
+    color: var(--accent);
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.pricing-table td:first-child,
+.pricing-table th:first-child {
+    text-align: left;
+}
+
+.pricing-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.pricing-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.035);
+}
+
+.pricing-notes {
+    margin-top: 1.5rem;
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+.pricing-notes p + p {
+    margin-top: 0.5rem;
+}
+
+/* Mobile pricing table */
+@media (max-width: 600px) {
+    .pricing-table-wrapper {
+        margin-top: 1.5rem;
+    }
+
+    .pricing-table {
+        min-width: 650px;
+    }
+
+    .pricing-table th,
+    .pricing-table td {
+        padding: 0.85rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Inquiry form feedback */
+.inquiry-form-confirmation {
+    margin-top: 1.5rem;
+    padding: 1rem 1.2rem;
+    border-radius: var(--radius);
+    line-height: 1.6;
+}
+
+.inquiry-form-confirmation.success {
+    color: #8fcf9b;
+    border: 1px solid rgba(143, 207, 155, 0.35);
+    background: rgba(143, 207, 155, 0.06);
+}
+
+.inquiry-form-confirmation.error {
+    color: #e58b8b;
+    border: 1px solid rgba(229, 139, 139, 0.35);
+    background: rgba(229, 139, 139, 0.06);
 }

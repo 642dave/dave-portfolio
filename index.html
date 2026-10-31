@@ -188,32 +188,192 @@
       <section id="commissions" class="projects-section">
           <h2 class="section-title">Kresby na zakázku</h2>
 
-        <p class="section-text">
-            Portréty, zvířata a další motivy podle vašich představ.
-            Každou kresbu vytvářím individuálně, s důrazem na detail
-            a osobní příběh.
-        </p>
+          <p class="section-text">
+              Rád pro tebe vytvořím kresbu podle fotografie nebo vlastní představy.
+              Každému motivu věnuji individuální pozornost – od prvního návrhu
+              až po hotové dílo.
+          </p>
 
-        <div class="projects-grid">
-            <article class="project-card">
-                <h3>Portréty</h3>
-                <p>Portréty lidí zachycující jejich podobu i osobnost.</p>
-            </article>
+          <div class="projects-grid">
+              <article class="project-card">
+                  <h3>Klasická kresba</h3>
+                  <p>
+                      Věrná kresba podle dodané fotografie. Zaměřuji se na
+                      zachycení podoby, detailů a charakteru portrétu,
+                      zvířete nebo jiného motivu.
+                  </p>
+              </article>
 
-            <article class="project-card">
-                <h3>Zvířata</h3>
-                <p>Kresby domácích mazlíčků a dalších zvířat.</p>
-            </article>
+              <article class="project-card">
+                  <h3>Autorská kresba</h3>
+                  <p>
+                      Osobitější výtvarné zpracování vycházející z tvého příběhu,
+                      nápadu nebo představy. Společně najdeme podobu kresby,
+                      která bude mít vlastní atmosféru.
+                  </p>
+              </article>
+          </div>
 
-            <article class="project-card">
-                <h3>Individuální motivy</h3>
-                <p>Máte vlastní představu? Společně probereme možnosti.</p>
-            </article>
-        </div>
+          <p class="section-text">
+              Kreslím grafitem a uhlem, v černobílém provedení.
+              K dispozici jsou formáty A4 a A3.
+          </p>
 
-        <div class="section-cta">
-            <a href="#contact" class="cta-button">Nezávazně se informovat</a>
-        </div>
+          <div class="section-cta">
+              <a href="#contact" class="cta-button">Nezávazně se informovat</a>
+          </div>
+      </section>
+
+      <!-- Commission pricing -->
+      <section id="pricing" class="projects-section">
+          <h2 class="section-title">Ceník kreseb</h2>
+
+          <p class="section-text">
+              Cena se odvíjí od motivu, zvolené techniky a formátu.
+              Všechny kresby vytvářím individuálně podle dodané fotografie.
+          </p>
+
+          <div class="pricing-table-wrapper">
+              <table class="pricing-table">
+                  <thead>
+                      <tr>
+                          <th>Motiv</th>
+                          <th>Grafit A4</th>
+                          <th>Grafit A3</th>
+                          <th>Uhel A4</th>
+                          <th>Uhel A3</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td>Portrét 1 osoby</td>
+                          <td>1 000 Kč</td>
+                          <td>1 300 Kč</td>
+                          <td>800 Kč</td>
+                          <td>1 100 Kč</td>
+                      </tr>
+                      <tr>
+                          <td>Portrét 2–3 osob</td>
+                          <td>1 500 Kč</td>
+                          <td>1 800 Kč</td>
+                          <td>1 300 Kč</td>
+                          <td>1 600 Kč</td>
+                      </tr>
+                      <tr>
+                          <td>Zvířecí portrét</td>
+                          <td>1 200 Kč</td>
+                          <td>1 500 Kč</td>
+                          <td>1 000 Kč</td>
+                          <td>1 300 Kč</td>
+                      </tr>
+                      <tr>
+                          <td>Auta, motorky a jiné motivy</td>
+                          <td>1 200 Kč</td>
+                          <td>1 500 Kč</td>
+                          <td>1 200 Kč</td>
+                          <td>1 500 Kč</td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+
+          <div class="pricing-notes">
+              <p>
+                  <strong>Autorská kresba:</strong>
+                  příplatek 500 Kč k základní ceně.
+              </p>
+              <p>
+                  Uvedené ceny jsou konečné. Cena dopravy prostřednictvím
+                  Zásilkovny se připočítává samostatně.
+              </p>
+          </div>
+      </section>
+
+      <!-- Commission inquiry form -->
+      <section id="inquiry" class="contact-section">
+          <h2 class="section-title">Nezávazná poptávka</h2>
+
+          <p class="section-text">
+              Máš představu o kresbě, kterou bych pro tebe mohl vytvořit?
+              Napiš mi několik základních informací. Ozvu se ti osobně
+              a společně probereme možnosti.
+          </p>
+
+          <form
+              class="review-form"
+              action="https://formsubmit.app/f/qaf629q2uf"
+              method="POST">
+
+              <div class="form-group">
+                  <label for="inquiry-name">Jméno</label>
+                  <input
+                      type="text"
+                      id="inquiry-name"
+                      name="name"
+                      maxlength="80"
+                      required>
+              </div>
+
+              <div class="form-group">
+                  <label for="inquiry-email">E-mail</label>
+                  <input
+                      type="email"
+                      id="inquiry-email"
+                      name="email"
+                      required>
+              </div>
+
+              <div class="form-group">
+                  <label for="drawing-type">Typ kresby</label>
+                  <select id="drawing-type" name="drawing_type" required>
+                      <option value="">Vyber možnost</option>
+                      <option value="Klasická kresba">Klasická kresba</option>
+                      <option value="Autorská kresba">Autorská kresba</option>
+                  </select>
+              </div>
+
+              <div class="form-group">
+                  <label for="drawing-technique">Technika</label>
+                  <select id="drawing-technique" name="technique" required>
+                      <option value="">Vyber možnost</option>
+                      <option value="Grafit">Grafit</option>
+                      <option value="Uhel">Uhel</option>
+                  </select>
+              </div>
+
+              <div class="form-group">
+                  <label for="drawing-format">Formát</label>
+                  <select id="drawing-format" name="format" required>
+                      <option value="">Vyber možnost</option>
+                      <option value="A4">A4</option>
+                      <option value="A3">A3</option>
+                  </select>
+              </div>
+
+              <div class="form-group">
+                  <label for="inquiry-message">Představa o kresbě</label>
+                  <textarea
+                      id="inquiry-message"
+                      name="message"
+                      rows="5"
+                      maxlength="2000"
+                      placeholder="Jaký motiv bys chtěl zachytit? Máš nějakou konkrétní představu?"
+                      required></textarea>
+              </div>
+
+              <button type="submit" class="cta-button">
+                  Odeslat nezávaznou poptávku
+              </button>
+
+              <input type="hidden" name="_subject" value="Nová poptávka – Rocky Art">
+
+              <input
+                  type="text"
+                  name="_gotcha"
+                  tabindex="-1"
+                  autocomplete="off"
+                  style="display:none">
+          </form>
       </section>
 
       <section class="faq-section" id="faq">
