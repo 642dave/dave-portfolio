@@ -123,6 +123,8 @@ footer {
 
 main {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  min-width: 0;
   gap: 28px;
 }
 
@@ -579,7 +581,9 @@ main > .hero {
 
   .hero-photo {
     order: 2;
-    width: min(420px, 92vw);
+    width: 100%;
+    max-width: 420px;
+    min-width: 0;
     aspect-ratio: auto;
     margin: 8px auto 0;
   }
@@ -618,7 +622,12 @@ main > .hero {
   }
 
   .projects-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    min-width: 0;
+  }
+
+  .project-card {
+    min-width: 0;
   }
 
   .projects-section,
@@ -1096,10 +1105,6 @@ padding: 1.25rem;
 @media (max-width: 600px) {
     .pricing-table-wrapper {
         margin-top: 1.5rem;
-    }
-
-    .pricing-table {
-        min-width: 650px;
     }
 
     .pricing-table th,
