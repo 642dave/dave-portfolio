@@ -8,8 +8,7 @@
   <meta name="description" content="Rocky Art – obrazy a kresby Davida Rakovského. Realistické portréty, originální malby a osobní tvorba plná emocí a příběhů.">
   <meta name="author" content="David Rakovský">
   <link rel="canonical" href="https://davidrakovsky.cz/">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-
+  
   <meta property="og:locale" content="cs_CZ">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Rocky Art | David Rakovský – obrazy a kresby">
@@ -22,22 +21,47 @@
   <meta name="twitter:description" content="Rocky Art – obrazy a kresby Davida Rakovského. Realistické portréty, originální malby a osobní tvorba plná emocí a příběhů.">
   <meta name="twitter:image" content="https://davidrakovsky.cz/images/atelier.png">
 
-  <!-- Structured data for the artist -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+
+  <!-- Structured data for the artist and brand -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "David Rakovský",
-    "url": "https://davidrakovsky.cz/",
-    "jobTitle": "Výtvarný umělec",
-    "description": "Výtvarná tvorba Davida Rakovského – originální obrazy, kresby a realistické portréty pod značkou Rocky Art.",
-    "image": "https://davidrakovsky.cz/images/atelier.png",
-    "knowsAbout": ["Výtvarné umění", "Kresba", "Portrét", "Malba", "Olejomalba"],
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Brno",
-      "addressCountry": "CZ"
-    }
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://davidrakovsky.cz/#person",
+        "name": "David Rakovský",
+        "url": "https://davidrakovsky.cz/",
+        "jobTitle": "Výtvarný umělec",
+        "description": "Výtvarná tvorba Davida Rakovského zahrnující originální obrazy, kresby a realistické portréty.",
+        "image": "https://davidrakovsky.cz/images/atelier.png",
+        "knowsAbout": [
+          "Výtvarné umění",
+          "Kresba",
+          "Portrét",
+          "Malba",
+          "Olejomalba"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Brno",
+          "addressCountry": "CZ"
+        },
+        "brand": {
+          "@id": "https://davidrakovsky.cz/#brand"
+        }
+      },
+      {
+        "@type": "Brand",
+        "@id": "https://davidrakovsky.cz/#brand",
+        "name": "Rocky Art",
+        "url": "https://davidrakovsky.cz/",
+        "logo": "https://davidrakovsky.cz/img/rocky-art-logo-circle.png",
+        "description": "Autorská výtvarná značka Davida Rakovského. Originální obrazy, realistické kresby a projekt Beneath.Surface."
+      }
+    ]
   }
   </script>
 
@@ -52,7 +76,9 @@
 <body>
   <div class="page-wrapper">
     <header class="header">
-      <a class="logo" href="#home" aria-label="Rocky Art – úvod">DR</a>
+      <a class="logo" href="#home" aria-label="Rocky Art – Úvod">
+          <img src="img/rocky-art-logo-circle.png" alt="Rocky Art – David Rakovský">
+      </a>
 
       <button class="nav-toggle" type="button" aria-label="Otevřít navigaci" aria-expanded="false" aria-controls="primary-navigation">
         <span></span>
