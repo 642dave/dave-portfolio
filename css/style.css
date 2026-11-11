@@ -1,5 +1,5 @@
 /* =========================================================
-   Rocky Art — Main Stylesheet
+   Rocky Art — Main Stylesheet.hero
    Design system, layout, components, and responsive behavior
    ========================================================= */
 
@@ -32,7 +32,7 @@
 
   --container: 1200px;
   --container-pad: 90%;
-  --header-offset: 83px;
+  --header-offset: 100px;
 }
 
 /* 2. Reset and base styles */
@@ -1133,4 +1133,31 @@ padding: 1.25rem;
     color: #e58b8b;
     border: 1px solid rgba(229, 139, 139, 0.35);
     background: rgba(229, 139, 139, 0.06);
+}
+
+/* Hero brand signature */
+.hero-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 18px;
+}
+
+.hero-brand span:first-child {
+    font-family: "Brush Script MT", "Segoe Script", cursive;
+    font-size: clamp(3.6rem, 7vw, 5.8rem);
+    font-weight: 500;
+    line-height: 1;
+    color: #f5f0e8;
+    letter-spacing: -0.04em;
+}
+
+.hero-brand-underline {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    margin-top: -5px;
+    margin-left: 0;
+    overflow: visible;
 }
