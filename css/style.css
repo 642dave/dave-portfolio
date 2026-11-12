@@ -655,6 +655,7 @@ main > .hero {
     left: 0;
     display: flex;
     flex-direction: column;
+    gap: 0.15rem;
     align-items: center;
     justify-content: flex-start;
     max-height: 0;
@@ -664,18 +665,32 @@ main > .hero {
     background: var(--surface);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     transition: max-height 0.25s ease;
+    z-index: 1000;
   }
 
   .navbar a {
     width: 100%;
     padding: 0.4rem 1rem;
     font-size: 0.9rem;
-    line-height: 1.25;
+    gap: 0.15rem;
+    line-height: 1.2;
     text-align: center;
   }
 
   body.nav-open .navbar {
-    max-height: 100vh;
+    position: fixed;
+    top: var(--header-offset);
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: auto;
+    max-height: none;
+    overflow-y: auto;
+    z-index: 1000;
+  }
+
+  body.nav-open {
+    overflow: hidden;
   }
 
   body.nav-open .nav-toggle span:nth-child(1) {
