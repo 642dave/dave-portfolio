@@ -872,14 +872,6 @@ color: #c8c0b5;
 margin: 2rem 0;
 }
 
-.reviews-empty {
-padding: 1.25rem;
-border-left: 3px solid #c6a878;
-background: rgba(255, 255, 255, 0.025);
-color: #bdb4a8;
-line-height: 1.7;
-}
-
 .review-form-wrapper {
 max-width: 760px;
 margin-top: 2.5rem;
