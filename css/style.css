@@ -400,6 +400,10 @@ main > .hero {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
+#pricing .project-card {
+    max-width: 100%;
+}
+
 .project-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-hover);
@@ -685,6 +689,7 @@ main > .hero {
     left: 0;
     height: auto;
     max-height: none;
+    justify-content: space-evenly;
     overflow-y: auto;
     z-index: 1000;
   }
@@ -1110,16 +1115,82 @@ padding: 1.25rem;
     margin-top: 0.5rem;
 }
 
-/* Mobile pricing table */
+/* Mobile pricing cards */
 @media (max-width: 600px) {
     .pricing-table-wrapper {
         margin-top: 1.5rem;
+        overflow: visible;
+        border: none;
+        background: transparent;
     }
 
-    .pricing-table th,
+    .pricing-table {
+        display: block;
+        width: 100%;
+        min-width: 0;
+    }
+
+    .pricing-table thead {
+        display: none;
+    }
+
+    .pricing-table tbody {
+        display: grid;
+        gap: 1rem;
+    }
+
+    .pricing-table tr {
+        display: block;
+        padding: 1rem;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        background: rgba(0, 0, 0, 0.12);
+    }
+
     .pricing-table td {
-        padding: 0.85rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 1rem;
+        padding: 0.65rem 0;
         font-size: 0.9rem;
+        white-space: normal;
+        text-align: right;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .pricing-table td:first-child {
+        display: block;
+        padding-top: 0;
+        color: var(--heading);
+        font-weight: 700;
+        text-align: left;
+    }
+
+    .pricing-table td:not(:first-child)::before {
+        color: var(--accent);
+        font-weight: 600;
+        text-align: left;
+    }
+
+    .pricing-table td:nth-child(2)::before {
+        content: "Grafit A4";
+    }
+
+    .pricing-table td:nth-child(3)::before {
+        content: "Grafit A3";
+    }
+
+    .pricing-table td:nth-child(4)::before {
+        content: "Uhel A4";
+    }
+
+    .pricing-table td:nth-child(5)::before {
+        content: "Uhel A3";
+    }
+
+    .pricing-table tbody tr:last-child td:last-child {
+        border-bottom: none;
     }
 }
 
