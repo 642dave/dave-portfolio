@@ -219,6 +219,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 "Poptávka byla úspěšně odeslána. Děkuji za tvůj zájem. Ozvu se ti co nejdříve.";
             confirmation.hidden = false;
 
+            if (typeof gtag === "function") {
+                gtag("event", "conversion", {
+                    send_to: "AW-1859395331/7919061961"
+                });
+            }
+
         } catch (error) {
             confirmation.className = "inquiry-form-confirmation error";
             confirmation.textContent =
